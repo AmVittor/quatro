@@ -1,0 +1,198 @@
+/* Fonte */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    /* Colors light */
+    --pink-main: #FD60AF;
+    --purple-dark: #554DD4;
+    --purple-light: #A45EE3;
+    --font-color: white;
+
+    --shadow: box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Poppins;
+}
+
+.dark_mode:root{
+    --pink-main: #FABB28;
+    --purple-dark: #211E1F;
+    --purple-light: #0C0C0C;
+    --font-color: black;
+}
+
+@font-face {
+    font-family: 'Clarika';
+    src: url(./Wild\ Edge\ -\ Clarika\ Pro\ GeoDEMO\ Heavy.otf);
+}
+
+::-webkit-scrollbar {
+    background-color: var(--pink-main);
+    width: 8px;
+}
+
+.main{
+    
+    background-color: var(--purple-light);
+    height: 60vh;
+    display: flex;
+    z-index: 100;
+    background-image: url(./images/vetors/mainCardVetorTeam.png);
+    background-size: 35%;
+    background-position-x: 80%;
+    background-position-y: 10%;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    height: 80%;
+    width: 60%;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.container-card{
+    display: flex;
+    height: 80%;
+    width: 70%;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.text{
+    width: 45%;
+    height: 70%;
+    padding-top: 5%;
+    color: white;
+    padding: 2%;
+    font-size: 1vw;
+}
+
+
+.image-vetor{
+    width: 45%;
+    height: 80%;
+}
+
+.card-sections{
+    padding-top: 12%;
+    height: 50vh;
+    flex-direction: column;
+    background-image: url(./images/waveUp.svg);
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    height: 70%;
+    padding: 2%;
+    width: 16%;
+    font-size: 0.8vw;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    border-radius: 1em;
+    -webkit-box-shadow: 0px 0px 11px 5px rgba(0,0,0,0.34); 
+    box-shadow: 0px 0px 11px 5px rgba(0,0,0,0.34);
+}
+.card img{
+    height: 10vw;
+}
+.card-text{
+    text-align: center;
+}
+
+.wave-important-section{
+    height: 20vh;
+    background-image: url(./images/waveBottom.svg);
+    background-repeat: no-repeat;
+   background-size: 100%;
+}
+.important-section{
+    background-color: var(--purple-light);
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+}
+.important-text{
+    text-align: center;
+    color: white;
+    width: 40%;
+}
+.how-works{
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-works{
+    width: 95%;
+    background-image: url(./images/vetors/sitVetor.png);
+    background-size: 18%;
+    background-position-x: 100%;
+    background-position-y: 110%;
+    background-repeat: no-repeat;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.text-works{
+    width: 30%;
+}
+.card-works{
+    width: 36%;
+    height: 60%;
+    -webkit-box-shadow: -11px -8px 9px -5px rgba(0,0,0,0.43); 
+    box-shadow: -11px -8px 9px -5px rgba(0,0,0,0.43);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.button-works{
+    width: 70%;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--pink-main);
+    border-radius: 20px;
+    height: 15%;
+}
+.options{
+    height: 150px;
+    margin-bottom: 1%;
+    padding-left: 10%;
+}
+.container-options{
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+.card-options{
+    height: 98%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 11px 5px rgba(0,0,0,0.34); 
+    box-shadow: 0px 0px 11px 5px rgba(0,0,0,0.34);
+}
