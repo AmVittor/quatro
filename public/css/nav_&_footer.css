@@ -51,14 +51,18 @@ a {
     width: 100%;
     background-color: var(--purple-light);
     display: flex;
+    align-items: center;
     justify-content: space-between;
   }
+
+  .site-identity{
+    padding-left: 4%;
+  }
   
-  .site-identity h1 {
-    color: white;
-    font-size: 1.5em;
-    margin: .6em 0;
-    display: inline-block;
+  .site-identity img {
+    height: 30px;
+  
+    
   }
   
   
