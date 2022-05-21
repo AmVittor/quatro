@@ -13,8 +13,8 @@
 }
 body{
     background-color: #A45EE3;
-    background-size: 100% 110%;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='555' preserveAspectRatio='none' viewBox='0 0 1440 555'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1152%26quot%3b)' fill='none'%3e%3crect width='1440' height='555' x='0' y='0' fill='rgba(164%2c 94%2c 227%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c291.73C70.506%2c302.792%2c140.957%2c348.719%2c207.455%2c322.806C275.583%2c296.258%2c326.01%2c228.105%2c344.684%2c157.412C362.512%2c89.92%2c319.818%2c24.307%2c304.281%2c-43.749C290.232%2c-105.287%2c297.158%2c-174.034%2c257.757%2c-223.348C217.831%2c-273.32%2c153.863%2c-297.82%2c91.166%2c-310.484C31.799%2c-322.476%2c-26.253%2c-302.901%2c-85.967%2c-292.778C-154.416%2c-281.174%2c-229.913%2c-289.307%2c-284.77%2c-246.755C-343.41%2c-201.269%2c-382.407%2c-129.93%2c-390.946%2c-56.21C-399.395%2c16.736%2c-372.657%2c90.722%2c-330.852%2c151.095C-292.739%2c206.137%2c-231.065%2c237.479%2c-169.45%2c263.67C-115.671%2c286.53%2c-57.73%2c282.672%2c0%2c291.73' fill='%239c50e1'%3e%3c/path%3e%3cpath d='M1440 979.5419999999999C1534.281 991.0989999999999 1638.575 1039.674 1719.0230000000001 989.169 1799.43 938.69 1795.988 821.837 1831.47 733.778 1865.042 650.4590000000001 1924.2939999999999 575.512 1921.882 485.716 1919.339 391.062 1876.079 302.257 1817.871 227.57299999999998 1757.599 150.24 1679.019 88.43799999999999 1586.642 55.581999999999994 1490.956 21.548999999999978 1377.402-9.927999999999997 1288.5819999999999 39.31600000000003 1200.127 88.35700000000003 1190.554 209.35399999999998 1145.743 300.025 1112.921 366.438 1088.26 431.707 1060.6770000000001 500.462 1023.1859999999999 593.914 922.808 681.145 954.505 776.718 985.422 869.9390000000001 1111.103 887.9 1201.727 925.76 1278.41 957.796 1357.511 969.431 1440 979.5419999999999' fill='%23ac6ce5'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1152'%3e%3crect width='1440' height='555' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='555' preserveAspectRatio='none' viewBox='0 0 1440 555'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1144%26quot%3b)' fill='none'%3e%3crect width='1440' height='555' x='0' y='0' fill='rgba(164%2c 94%2c 227%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c329.041C64.54%2c326.942%2c131.972%2c324.756%2c185.422%2c288.522C238.331%2c252.654%2c266.072%2c191.713%2c290.007%2c132.442C313.081%2c75.303%2c328.343%2c15.04%2c320.545%2c-46.087C312.669%2c-107.821%2c280.509%2c-161.356%2c245.924%2c-213.095C207.005%2c-271.318%2c169.843%2c-333.823%2c107.233%2c-365.202C38.816%2c-399.492%2c-44.95%2c-423.313%2c-115.803%2c-394.39C-185.906%2c-365.773%2c-204.326%2c-277.194%2c-252.159%2c-218.497C-298.1%2c-162.121%2c-379.036%2c-127.941%2c-391.341%2c-56.266C-403.668%2c15.54%2c-349.64%2c79.824%2c-314.311%2c143.541C-281.573%2c202.585%2c-251.481%2c266.528%2c-193.339%2c300.842C-136.091%2c334.629%2c-66.44%2c331.202%2c0%2c329.041' fill='%239c50e1'%3e%3c/path%3e%3cpath d='M1440 1009.427C1523.063 1019.159 1581.699 927.441 1642.343 869.852 1693.247 821.512 1727.325 762.95 1763.134 702.5699999999999 1803.467 634.561 1864.386 572.909 1865.334 493.846 1866.327 411.009 1833.629 321.475 1768.315 270.514 1704.726 220.899 1614.073 243.95299999999997 1533.89 235.23899999999998 1469.182 228.207 1404.313 202.73899999999998 1342.892 224.279 1282.654 245.404 1251.66 307.952 1204.35 350.808 1148.987 400.96000000000004 1067.396 427.724 1041.115 497.649 1013.512 571.091 1018.517 662.511 1062.872 727.2280000000001 1106.295 790.5840000000001 1204.497 779.742 1265.994 825.759 1334.914 877.331 1354.506 999.4100000000001 1440 1009.427' fill='%23ac6ce5'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1144'%3e%3crect width='1440' height='555' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
     background-repeat: no-repeat;
 }
 *{
@@ -22,6 +22,13 @@ body{
     padding: 0;
     font-family: Poppins;
     color: white;
+}
+
+.dark_mode:root{
+    --pink-main: #FABB28;
+    --purple-dark: #211E1F;
+    --purple-light: #0C0C0C;
+    --font-color: black;
 }
 
 @font-face {
@@ -33,14 +40,15 @@ body{
     background-color: var(--pink-main);
     width: 8px;
 }
-h1{
-    margin-top: 4%;
-}
+
 .main{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 90vh;
+}
+h1{
+    margin: 0;
 }
 
 .container{
@@ -57,13 +65,8 @@ form{
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    height: 50%;
+    height: 80%;
     width: 40%;
-    margin-bottom: 5%;
-}
-
-span{
-    color: var(--pink-main);
 }
 input{
     width: 60%;
@@ -77,6 +80,9 @@ input::placeholder{
     color: white;
     font-style: italic;
 }
+span{
+    color: var(--pink-main);
+}
  #passWordConfirm{
     margin-right: 36%;
 }
@@ -87,9 +93,8 @@ label{
 button{
     cursor: pointer;
     width: 65%;
-    font-weight: bold;
-    font-size: 1.2vw;
     border: none;
+    font-size: 1.2vw;
     padding: 2%;
     border-radius: 5px;
     background-color: var(--pink-main);
@@ -129,7 +134,7 @@ input[type=number] {
         align-items: center;
         height: 20%;
         flex-direction: column;
-        width: 80%;
+        width: 90%;
     }
     
     form{
@@ -137,16 +142,16 @@ input[type=number] {
         flex-direction: column;
         align-items: center;
         height: 60%;
-        width: 80%;
+        width: 86%;
         margin-bottom: 5%;
-      
+        
     }
     
     span{
         color: var(--pink-main);
     }
     input{
-        width: 60%;
+        width: 70%;
         padding: 2%;
         background: transparent;
         border: 1px solid white;
@@ -158,11 +163,11 @@ input[type=number] {
         font-style: italic;
     }
      #passWordConfirm{
-        margin-right: 36%;
+        margin-left: 10%;
     }
     
     label{
-        margin-right: 53%;
+        margin-left: 4%;
     }
     button{
         cursor: pointer;
@@ -227,11 +232,11 @@ input[type=number] {
         font-style: italic;
     }
      #passWordConfirm{
-        margin-right: 36%;
+        margin-right: 30%;
     }
     
     label{
-        margin-right: 53%;
+        margin-right: 60%;
     }
     button{
         cursor: pointer;
@@ -259,7 +264,7 @@ input[type=number] {
         height: 80vh;
     }
     h1{
-        margin-top: 14%;
+        margin-top: 4%;
     }
     
     .container{
@@ -274,11 +279,8 @@ input[type=number] {
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 60%;
+        height: 90%;
         width: 80%;
-       
-        margin-bottom: 5%;
-      
     }
     
     span{
@@ -297,11 +299,11 @@ input[type=number] {
         font-style: italic;
     }
      #passWordConfirm{
-        margin-right: 36%;
+        margin-right: 45%;
     }
     
     label{
-        margin-right: 53%;
+        margin-right: 58%;
     }
     button{
         cursor: pointer;

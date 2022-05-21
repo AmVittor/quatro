@@ -17,6 +17,13 @@
     font-family: Poppins;
 }
 
+.dark_mode:root{
+    --pink-main: #FABB28;
+    --purple-dark: #211E1F;
+    --purple-light: #0C0C0C;
+    --font-color: black;
+}
+
 @font-face {
     font-family: 'Clarika';
     src: url(./Wild\ Edge\ -\ Clarika\ Pro\ GeoDEMO\ Heavy.otf);

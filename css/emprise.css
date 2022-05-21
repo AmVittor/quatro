@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    /* Colors light */
+    --pink-main: #FD60AF;
+    --purple-dark: #554DD4;
+    --purple-light: #A45EE3;
+
+     /* Colors dark */
+     --yellow-main: #FABB28;
+     --black-light: #211E1F;
+     --black-main: #0C0C0C;
+     
+     /* Sombra */
+
+     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
+
+  }
+  body{
+      background-color: #A45EE3;
+  }
+  @font-face {
+    font-family: 'Clarika';
+    src: url(./Wild\ Edge\ -\ Clarika\ Pro\ GeoDEMO\ Heavy.otf);
+}
+h1, h2, h3{
+    font-family: 'Poppins';
+}
+.main{
+    height: 90vh;
+    padding-left: 20%;
+}
+.header{
+    color: white;
+    padding-left: 2%;
+    padding-right: 2%;
+    height: 100px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.detail{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    justify-content: space-evenly;
+    margin-bottom: 5%;
+    padding-right: 7%;
+}
+.container-button{
+    width: 22%;
+    display: flex;
+    justify-content: space-between;
+}
+.line{
+    width: 75%;
+    height: 2px;
+    background-color: white;
+}
+.buttons{
+    height: 24px;
+    width: 90px;
+    padding: 1%;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+}
+.text-button{
+    font-size: 14px;
+}
+.search-header-input{
+    width: 500px;
+    height: 30px;
+    outline: none;
+}
+.container-card{
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+input{
+    outline: none;
+    border: none;
+    padding: 1%;
+}
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card{
+    height: 180px;
+    width: 300px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 1%;
+
+    background-color: #211E1F;
+    color: white;
+}
+
+.card-italic{
+    font-size: 12px;
+}
+.alert{
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    background-color: red;
+}
+
+.card-body{
+    border-radius: 5px;
+    width: 100%;
+    height: 65%;
+    background-color: var(--pink-main);
+}
+
+@media (max-width: 600px){
+
+    .text-button{
+        font-size: 14px;
+        content: "Add";
+    }
+    .buttons{
+        height: 24px;
+        width: 20px;
+
+        padding: 1%;
+        align-items: center;
+        text-align: center;
+        background-color: white;
+    }
+    .line{
+        width: 35%;
+        height: 2px;
+        background-color: white;
+    }
+    .card{
+        height: 100px;
+        width: 130px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        padding: 1%;
+        background-color: #211E1F;
+        color: white;
+    }
+    .search-header-input{
+        width: 120px;
+        height: 30px;
+        outline: none;
+    }
+    .container-card{
+        width: 90%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    input{
+        outline: none;
+        border: none;
+        padding: 1%;
+    }
+    .container-card{
+        width: 90%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+.card-body{
+    border-radius: 5px;
+    width: 100%;
+    height: 35%;
+    background-color: var(--pink-main);
+}
+.alert{
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    background-color: red;
+}
+}
+@media (max-width: 800px){
+
+    .text-button{
+        font-size: 14px;
+        content: "Add";
+    }
+    .buttons{
+        height: 24px;
+        width: 50px;
+        margin-left: 4%;
+        padding: 1%;
+        align-items: center;
+        text-align: center;
+        background-color: white;
+    }
+    .line{
+        width: 85%;
+        height: 2px;
+        background-color: white;
+    }
+    .card{
+        height: 130px;
+        width: 180px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        padding: 1%;
+        background-color: #211E1F;
+        color: white;
+    }
+    .search-header-input{
+        width: 220px;
+        height: 30px;
+        outline: none;
+    }
+    .container-card{
+        width: 90%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    input{
+        outline: none;
+        border: none;
+        padding: 1%;
+    }
+    .container-card{
+        width: 90%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+.card-body{
+    border-radius: 5px;
+    width: 100%;
+    height: 55%;
+    background-color: var(--pink-main);
+}
+.alert{
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    background-color: red;
+}
+}
+
+@media (max-width: 1000px){
+
+    .text-button{
+        font-size: 14px;
+        content: "Add";
+    }
+    .buttons{
+        height: 24px;
+        width: 70px;
+        margin-left: 4%;
+        padding: 1%;
+        align-items: center;
+        text-align: center;
+        background-color: white;
+    }
+    .line{
+        width: 85%;
+        height: 2px;
+        background-color: white;
+    }
+    .card{
+        height: 130px;
+        width: 198px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        padding: 1%;
+        background-color: #211E1F;
+        color: white;
+    }
+    .search-header-input{
+        width: 350px;
+        height: 30px;
+        outline: none;
+    }
+    .container-card{
+        width: 90%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    input{
+        outline: none;
+        border: none;
+        padding: 1%;
+    }
+    .container-card{
+        width: 90%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+.card-body{
+    border-radius: 5px;
+    width: 100%;
+    height: 55%;
+    background-color: var(--pink-main);
+}
+.alert{
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    background-color: red;
+}
+}

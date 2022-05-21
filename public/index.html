@@ -5,43 +5,70 @@
     <link rel="stylesheet" href="./css/style.css">
    <link rel="stylesheet" href="./css/nav_&_footer.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <!-- TailwindCSS -->
+     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+     <!-- Inter Font -->
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quatro</title>
 </head>
 <body>
-    <div class="container_nav">
-        <header class="site-header">
-            <div class="site-identity">
-                <a href="./index.html"> <img src="./css/images/logo/logo-quatro-write-white.svg" alt=""></a>
-            </div>
-
-            <nav style="margin-right: 5%;"class="site-navigation">
-              <ul class="nav">
-                <li><a href="#">Sobre nós</a></li> 
-                <li><a href="./plans.html">Planos</a></li> 
-                <li><a href="./dashboard.html">Dashboard</a></li> 
-                <li><a href="./cadastro.html">Cadastro</a></li> 
-                <li><a href="./login.html">Login</a></li>
-                <!--
-                <li>
-                    <label class="switch">
-                    <input type="checkbox" id="switch" checked>
-                    <span class="slider round"></span>
-                  </label>
-                 <a>Modo escuro</a> 
-                </li>
-              -->
-         
-              </ul>
-            </nav>
-          </header>
+    <nav style="background-color: #A45EE3;" class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
+        <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+          <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+            <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">Quatro</a>
+            <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" onclick="toggleNavbar('example-collapse-navbar')">
+              <i class="text-white fas fa-bars"></i>
+            </button>
+          </div>
+          <div class="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden"
+            id="example-collapse-navbar">
+    
+            <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+              <li class="flex items-center">
+                <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  href="./dashboard.html">
+                  <span class=" inline-block ml-2">Dashboard</span>
+                  </a>
+              </li>
+              <li class="flex items-center">
+                <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  href="./cadastro.html">
+                  <span class=" inline-block ml-2">Cadastro</span>
+                  </a>
+              </li>
+              <li class="flex items-center">
+                <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  href="./login.html">
+                  <span class=" inline-block ml-2">Login</span>
+                  </a>
+              </li>
+              <!-- <li class="flex items-center">
+                <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  href="#">
+                  <span class=" inline-block ml-2">Ajuda</span>
+                  </a>
+              </li> -->
+              <li class="flex items-center">
+                <button
+                  class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
+                  type="button" style="transition: all 0.15s ease 0s;">
+                  Planos
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
+      </nav>
     <div class="main">
         <div class="container">
             <div class="text">
                 <h1>Monitoramento de Servidores para seu  
                     E-commerce</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ab quas obcaecati tempora sed laborum ullam debitis laboriosam! Fugiat quam quia mollitia doloribus repudiandae delectus consectetur aperiam asperiores maxime repellat?</p>
+                <p>Fique por dentro dos problemas de desempenho do servidor e das
+                    interrupções com nosso serviço de monitoramento de servidor.
+                    </p>
             </div>
             <div class="image-vetor">
             </div>
@@ -50,7 +77,7 @@
     <div class="card-sections">
         <div class="card-text">
             <h1>O que nós fazemos:</h1>
-            <p>A Quatro monitora o servidor em que está hospedado seu e-commerce para que sua loja sempre esteja segura!</p>
+            <p>A Quatro monitora o servidor em que está hospedado seu e-commerce para garantir o seu melhor desempenho!</p>
         </div>
         <div class="container-card">
             <div class="card">
@@ -61,12 +88,17 @@
             <div class="card">
                 <img src="./css/images/vetors/vetorCard2.png" alt="">
                 <h3>Dados concretos</h3>
-                <h4>Os dados em que exibimos são embazados no próprio servidor e reais</h4>
+                <h4>Asseguramos a veracidade de todos
+                    os dados, sendo eles embazados
+                    do próprio servidor.</h4>
             </div>
             <div class="card">
                 <img src="./css/images/vetors/vetorCard3.png" alt="">
                 <h3>Relatórios!</h3>
-                <h4>A Quatro disponibiliza um histório de desempenho do seu ultimo mês, semana ou até ano!</h4>
+                <h4>A Quatro disponibiliza um
+                    historico de desempenho 
+                    do seu último mês, 
+                    semana e ano.</h4>
             </div>
         </div>
     </div>
@@ -74,7 +106,9 @@
     <div class="important-section">
         <div class="important-text">
             <h1>A importância de nosso negócio</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing el tincidunt varius sapien blandit non dolor, viverr praesent netus etiam euismod scelerisque. Venenatis, urna netus feugiat id sit interdum adipiscing cursus.</p>
+            <p>Se não forem devidamente monitorados, os servidores podem apresentar problemas 
+                como falhas, erros de operações, instabilidade e dificuldade de tráfego. Um investimento
+                de longo prazo, visando a melhor experiência e fidelização do usuário.</p>
         </div>
     </div>
 
@@ -82,77 +116,74 @@
         <div class="container-works">
             <div class="text-works">
                 <h1>Como isso funciona?</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat totam repudiandae odio in labore exercitationem doloribus, vero sequi </p>
+                <p>Monitoramos seus servidores para a coleta de dados, os mesmos são enviados e salvos na nuvem,
+                    são apresentados através da dashboard com parametrização em tempo real, semanal, mensal e anual,
+                    além do envio de alertas toda vez que algum evento inesperado ocorrer. </p>
             </div>
             <div class="card-works">
                 <h1>Conheça nossos planos</h1>
                 <h3>Conheça a equipe por trás do projeto Quatro</h3>
-                <div class="button-works"><h2>Clique e conheça</h2></div>
+                <!-- <a class="mobile-button" style="width: 50%; background-color: red; text-align: center; padding: 1%; border-radius: 5px; background-color: #FD60AF; margin-right: 20%; " href="">
+                Clique e conheça
+            </a> -->
+                <a href="" class="btn">
+                    <svg width="275" height="62">
+                       <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                    </svg>
+                      <span>Clique aqui e conheça</span>
+                  </a>
             </div>
         </div>
      
     </div>
     <div class="options">
+         <!-- 
+                      -->
         <div class="container-options">
             <div class="card-options">
-                <h3>Lorem</h3>
-                <i>Lorem</i>
+                <h3>Monitoramento</h3>
+                <i>Monitore toda a sua infraestrutura de servidores</i>
             </div>
             <div class="card-options">
-                <h3>Lorem</h3>
-                <i>Lorem</i>
+                <h3>Decições</h3>
+                <i>Tome decisões mais acertivas referentes ao seu negócio.</i>
             </div>
             <div class="card-options">
-                <h3>Lorem</h3>
-                <i>Lorem</i>
+                <h3>Histórico</h3>
+                <i>Utilize nosso mapa de calor para entender o comportamento de seus usuários.</i>
             </div>
             <div class="card-options">
-                <h3>Lorem</h3>
-                <i>Lorem</i>
+                <h3>Atendimento</h3>
+                <i>Com nosso chat bot o atendimento é 24h</i>
             </div>
         </div>
     </div>
     <footer class="footer-distributed">
-    
                 <div class="footer-left">
-    
-                    <h1>Quatro</h1>
-    
+                    <div class="footer-identity">
+                        <a href="./index.html"> <img src="./css/images/logo/logo-quatro-write-white.svg" alt=""></a>   
+                             </div> 
                     <p class="footer-links">
                         <a href="./index.html">Inicio</a>
                         ·
-                        
-                        <a href="#">Planos</a>
-                        ·
-                        <a href="#">Sobre nós</a>
+                        <a href="./plans.html">Planos</a>
                         ·
                         <a href="#">Contact</a>
                     </p>
-    
-                    <p class="footer-company-name">Quatro © 2022</p>
-    
-              
-    
+                        <p class="footer-company-name">Quatro © 2022</p>
                 </div>
-    
-                <div class="footer-right">
-    
-                    <p>Fale conosco</p>
-    
-                    <form action="#" method="post">
-    
-                        <input type="text" name="email" placeholder="Email">
+                    <div class="footer-right">
+                        <p>Fale conosco</p>
+                        <form action="#" method="post">
+                            <input type="text" name="email" placeholder="Email">
                         <textarea name="message" placeholder="Message"></textarea>
                         <button>Enviar</button>
-    
-                    </form>
-    
-                </div>
-    
-            </footer>
+                        </form>
+                    </div>
+                </footer>
 </body>
 </html>
-<!--
+<script src="nav.js"></script>
 <script>
     
     const $html = document.querySelector('html')
@@ -165,4 +196,4 @@
         
     })
     </script>
-    -->
+   

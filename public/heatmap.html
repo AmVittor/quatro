@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./css/heatmap.css">
+    <link rel="stylesheet" href="./css/sidebar.css">
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-heatmap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Document</title>
+</head>
+<body>
+  <nav  class="sidebar close">
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <!--<img src="logo.png" alt="">-->
+            </span>
+
+            <div class="text logo-text">
+                <span class="name">QUATRO</span>
+        
+            </div>
+        </div>
+
+        <i class='bx bx-chevron-right toggle'></i>
+    </header>
+
+    <div class="menu-bar">
+        <div class="menu">
+
+            <li class="search-box">
+                <i class='bx bx-search icon'></i>
+                <input style="background-color: transparent;" type="text" placeholder="Pesquisa...">
+            </li>
+
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a href="./index.html">
+                        <i class='bx bx-home-alt icon' ></i>
+                        <span class="text nav-text">Início</span>
+                    </a>
+                </li>
+
+                    <li class="nav-link">
+                    <a href="./emprises.html">
+                        <i class='bx bx-bell icon'></i>
+                        <span class="text nav-text">Minhas empresas</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="./dashboard.html">
+                        <i class='bx bx-pie-chart-alt icon' ></i>
+                        <span class="text nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="./employes.html">
+                        <i class='bx bxs-user-pin icon'></i>
+                        <span class="text nav-text">Adicionar func.</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bottom-content">
+            <li class="">
+                <a href="./index.html">
+                    <i class='bx bx-log-out icon' ></i>
+                    <span class="text nav-text">Sair</span>
+                </a>
+            </li>
+        
+        </div>
+    </div>
+
+</nav>
+
+<div id="container"></div>
+</body>
+<script>
+    anychart.onDocumentReady(function () {
+
+  // Dados 
+  var data = [
+    { x: "Segunda", y: "Valemobi", heat: 0.676 },
+    { x: "Segunda", y: "Lorem2", heat: 0.691 },
+    { x: "Segunda", y: "Lorem3", heat: 0.735 },
+    { x: "Segunda", y: "Lorem4", heat: 0.900 },
+    { x: "Segunda", y: "Lorem5", heat: 0.900 },
+    { x: "Segunda", y: "Lorem6", heat: 0.498 },
+    { x: "Terça", y: "Valemobi", heat: 0.700 },
+    { x: "Terça", y: "Lorem2", heat: 0.900 },
+    { x: "Terça", y: "Lorem3", heat: 0.744 },
+    { x: "Terça", y: "Lorem4", heat: 0.900},
+    { x: "Terça", y: "Lorem5", heat: 0.593 },
+    { x: "Terça", y: "Lorem6", heat: 0.505 },
+    { x: "Quarta", y: "Valemobi", heat: 0.687 },
+    { x: "Quarta", y: "Lorem2", heat: 0.707 },
+    { x: "Quarta", y: "Lorem3", heat: 0.750 },
+    { x: "Quarta", y: "Lorem4", heat: 0.740 },
+    { x: "Quarta", y: "Lorem5", heat: 0.601 },
+    { x: "Quarta", y: "Lorem6", heat: 0.512 },
+    { x: "Quinta", y: "Valemobi", heat: 0.688 },
+    { x: "Quinta", y: "Lorem2", heat: 0.900 },
+    { x: "Quinta", y: "Lorem3", heat: 0.900 },
+    { x: "Quinta", y: "Lorem4", heat: 0.748 },
+    { x: "Quinta", y: "Lorem5", heat: 0.607 },
+    { x: "Quinta", y: "Lorem6", heat: 0.900 },
+    { x: "Sexta", y: "Valemobi", heat: 0.691 },
+    { x: "Sexta", y: "Lorem2", heat: 0.721 },
+    { x: "Sexta", y: "Lorem3", heat: 0.766 },
+    { x: "Sexta", y: "Lorem4", heat: 0.752 },
+    { x: "Sexta", y: "Lorem5", heat: 0.617 },
+    { x: "Sexta", y: "Lorem6", heat: 0.527 },
+    { x: "Sábado", y: "Valemobi", heat: 0.695 },
+    { x: "Sábado", y: "Lorem2", heat: 0.727 },
+    { x: "Sábado", y: "Lorem3", heat: 0.770 },
+    { x: "Sábado", y: "Lorem4", heat: 0.900 },
+    { x: "Sábado", y: "Lorem5", heat: 0.624 },
+    { x: "Sábado", y: "Lorem6", heat: 0.532 },
+    { x: "Domingo", y: "Valemobi", heat: 0.699 },
+    { x: "Domingo", y: "Lorem2", heat: 0.733 },
+    { x: "Domingo", y: "Lorem3", heat: 0.900 },
+    { x: "Domingo", y: "Lorem4", heat: 0.756 },
+    { x: "Domingo", y: "Lorem5", heat: 0.634 },
+    { x: "Domingo", y: "Lorem6", heat: 0.535 },
+  ];        
+        
+  // Cria o gráfico e poe os dados
+  chart = anychart.heatMap(data);
+        
+  // Titulo do gráfico
+  chart.title("Acessos ultima semana");
+        
+  // Cria e configura as cores de acordo com os valores
+  var customColorScale = anychart.scales.ordinalColor();
+  customColorScale.ranges([
+    { less: 0.549, name: 'Baixo: <= 0.549', color: '#C0392B' },
+    { from: 0.550, to: 0.699, name: 'Médio: 0.55 - 0.699', color: '#F39C12' },
+    { from: 0.700, to: 0.799, name: 'Alto: 0.7 - 0.799', color: '#F1C40F' },
+    { greater: 0.800, name: 'Muito alto: >=0.8', color: '#27AE60' }
+  ]);
+  
+  // Seta as cores para cada intervalo do menor para o maior
+  customColorScale.colors(["#C0392B", "#F39C12", "#F1C40F", "#27AE60"]);
+        
+  // set the color scale as the color scale of the chart
+  chart.colorScale(customColorScale);
+  
+  // Ativiar ou desativar legenda
+  chart.legend(true);
+
+  // ativa/desativa números nos quadrados
+  chart.labels().enabled(false)
+
+  // Pega o id da div
+  chart.container("container");
+        
+  // Desenha o gráfico
+  chart.draw();
+        
+});
+</script>
+</html>
+<script>
+  const body = document.querySelector('body'),
+sidebar = body.querySelector('nav'),
+toggle = body.querySelector(".toggle"),
+searchBtn = body.querySelector(".search-box"),
+modeSwitch = body.querySelector(".toggle-switch"),
+modeText = body.querySelector(".mode-text");
+
+
+toggle.addEventListener("click" , () =>{
+sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click" , () =>{
+sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click" , () =>{
+body.classList.toggle("dark");
+
+if(body.classList.contains("dark")){
+  modeText.innerText = "Light mode";
+}else{
+  modeText.innerText = "Dark mode";
+  
+}
+});
+
+
+</script>
