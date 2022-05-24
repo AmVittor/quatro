@@ -5,84 +5,70 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CRUD</title>
+<!-- TailwindCSS -->
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+<!-- Inter Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 <link rel="stylesheet" href="./css/sidebar.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="./css/crud.css">
-<link rel="stylesheet" href="./css/emprise.css">
-<link rel="stylesheet" href="./css/sidebar.css">
+<link rel="stylesheet" href="./assets/css/crud.css">
+<link rel="stylesheet" href="./assets/css/emprise.css">
   <body>
-	<nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <!--<img src="logo.png" alt="">-->
-                </span>
-
-                <div class="text logo-text">
-                    <span class="name" onclick="finalizar_sessao()">QUATRO</span>
-
-                </div>
-            </div>
-
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-
-        <div class="menu-bar">
-            <div class="menu">
-
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input style="background-color: transparent;" type="text" placeholder="Pesquisa...">
-                </li>
-
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="./index.html">
-                            <i class='bx bx-home-alt icon'></i>
-                            <span class="text nav-text">Início</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="./dashboard.html">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="./heatmap.html">
-                            <i class='bx bx-pie-chart-alt icon'></i>
-                            <span class="text nav-text">Analytics</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="./employes.html">
-                            <i class='bx bxs-user-pin icon'></i>
-                            <span class="text nav-text">Adicionar func.</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="bottom-content" onclick="finalizar_sessao()">
-                <li class="">
-                    <a href="./index.html" onclick="finalizar_sessao()">
-                        <i class='bx bx-log-out icon'></i>
-                        <span class="text nav-text">Sair</span>
-                    </a>
-                </li>
-            </div>
+	<nav style="background-color: #A45EE3;" class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
+        <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+          <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+            <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">Quatro</a>
+            <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" onclick="toggleNavbar('example-collapse-navbar')">
+              <i class="text-white fas fa-bars"></i>
+            </button>
+          </div>
+          <div class="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden"
+            id="example-collapse-navbar">
+    
+            <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+              <li class="flex items-center">
+                <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  href="./dashboard.html">
+                  <span class=" inline-block ml-2">Dashboard</span>
+                  </a>
+              </li>
+              <li class="flex items-center">
+                <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  href="./cadastro.html">
+                  <span class=" inline-block ml-2">Cadastro</span>
+                  </a>
+              </li>
+              <li class="flex items-center">
+                <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  href="./login.html">
+                  <span class=" inline-block ml-2">Login</span>
+                  </a>
+              </li>
+              <!-- <li class="flex items-center">
+                <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  href="#">
+                  <span class=" inline-block ml-2">Ajuda</span>
+                  </a>
+              </li> -->
+              <li class="flex items-center">
+                <a href="./plans.html"
+                  class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
+                   style="transition: all 0.15s ease 0s;">
+                  Planos
+			  </a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
+      </nav>
 	<div class="main">
         <div class="header">
             <div class="text-header">

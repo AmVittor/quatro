@@ -4,17 +4,16 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CRUD</title>
+<title>Cadastrar Funcionário</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-<link rel="stylesheet" href="./css/sidebar.css">
+<script src="./assets/js/empolyes.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="./css/crud.css">
-
+<link rel="stylesheet" href="./assets/css/crud.css">
   <body>
 	<div class="container-nav">
 		<header class="site-header">
@@ -224,75 +223,3 @@
 	  </div>
 </body>
 </html>
-<script>
-	$(document).ready(function(){
-	// Activate tooltip
-	$('[data-toggle="tooltip"]').tooltip();
-	
-	// Select/Deselect checkboxes
-	var checkbox = $('table tbody input[type="checkbox"]');
-	$("#selectAll").click(function(){
-		if(this.checked){
-			checkbox.each(function(){
-				this.checked = true;                        
-			});
-		} else{
-			checkbox.each(function(){
-				this.checked = false;                        
-			});
-		} 
-	});
-	checkbox.click(function(){
-		if(!this.checked){
-			$("#selectAll").prop("checked", false);
-		}
-	});
-});
-
-
- function aguardar() {
-   var divAguardar = document.getElementById("div_aguardar");
-   divAguardar.style.display = "block";
-}
-
-function finalizarAguardar() {
- aguardar();
- var divAguardar = document.getElementById("div_aguardar");
-   divAguardar.style.display = "none";
-}
-
-// Pegando o ID do cliente para inserir nos usuarios
-var idClient = sessionStorage.cliente_id;
-
-console.log("Id do Cliente:" + idClient);
-
-window.onload = pegar(idClient)
-
-function pegar(idClient){
- fetch(`/usuarios/fk/${idClient}`, { cache: 'no-store' }).then(function (response) {
- })
-}
- function cadastrar() {
-   aguardar();
-
-   var formulario = new URLSearchParams(new FormData(form_cadastro));
-   fetch("/usuarios/cadastrar", {
-	   method: "POST",
-	   body: formulario
-   }).then(function (response) {
-	   if (response.ok) {
-		 console.log("Funcionário cadastrado com sucesso!")
-		 window.location.href = 'emprises.html';
-	   } else {
-
-		   console.log('Erro de cadastro!');
-		   response.text().then(function (resposta) {
-			   div_erro.innerHTML = resposta;
-		   });
-	   }
-   });
-
-   return false;
- }
-
-</script>
