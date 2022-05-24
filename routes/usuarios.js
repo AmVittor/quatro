@@ -13,7 +13,7 @@ router.post('/autenticar', function(req, res, next) {
 	var email = req.body.n_login; // depois de .body, use o nome (name) do campo em seu formulário de login
 	var senha = req.body.n_senha; // depois de .body, use o nome (name) do campo em seu formulário de login	
 	
-	let instrucaoSql = `select * from dbo_user where email='${email}' and user_password='${senha}'`;
+	let instrucaoSql = `select * from dbo.user where email='${email}' and password='${senha}'`;
 	console.log(instrucaoSql);
 
 	sequelize.query(instrucaoSql, {

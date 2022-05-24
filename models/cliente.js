@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
 			autoIncrement: true
 		},
 		client_name: {
-			field: 'client_name',
+			field: 'name',
 			type: DataTypes.STRING,
 			allowNull: false
 		},
@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
 			allowNull: false
 		},
 		client_password: {
-			field: 'client_password',
+			field: 'password',
 			type: DataTypes.STRING,
 			allowNull: false
 		},
