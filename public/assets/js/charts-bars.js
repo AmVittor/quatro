@@ -90,11 +90,12 @@ function recuperarDadosDisco() {
           }
 
           var convertedToGB = parseFloat(data.usage) / 1024 / 1024 / 1024
+          
 
           if(data.id_component == 3) {
-            myBar.data.datasets[0].data.push(convertedToGB)
+            myBar.data.datasets[0].data.push(convertedToGB.toFixed(2))
           } else {
-            myBar.data.datasets[1].data.push(convertedToGB * 1800)
+            myBar.data.datasets[1].data.push((convertedToGB * 1800.).toFixed(2))
           }
 
           myBar.update();
