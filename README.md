@@ -11,7 +11,7 @@ mysql -u root -p
 
 
 
-## Possiveis problemas <br><br><br>
+## Possiveis problemas <br>
 ### Caso o docker exec acuse erro dizendo que não está running basta rodar: <br> <br>
 ` 
 sudo su root
