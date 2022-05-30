@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
 		},
 	}, 
 	{
-		tableName: 'dbo_server',
+		tableName: 'server',
 		freezeTableName: true, 
 		underscored: true,
 		timestamps: false,

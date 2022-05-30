@@ -4,14 +4,26 @@ var sequelize = require('../models').sequelize;
 var Medida = require('../models').Medida;
 var Component = require('../models').Component;
 
-var tempo = 0;
+router.post('/recuperar/cpu', function (req, res, next) {
+	console.log("entrou no req", req.body.hostName);
+	let queryCPU = `SELECT 
+					server_name,
+					operational_system,
+					id_component, 
+					usage, 
+					measurement_date, 
+					item, 
+					speed, 
+					[dbo].[measurement].temperature
+					from measurement 
+					inner join [dbo].[component] 
+					on fk_component = id_component 
+					inner join [dbo].[server]
+					on fk_server = id_server
+					where measurement_date > DATEADD(mi, -200, GETDATE()) 
+					and item like 'cpu'
+					and server_name like '${req.body.hostName}'`
 
-let queryCPU = `SELECT id_component, usage, measurement_date, item, speed, [dbo].[measurement].temperature from measurement inner join [dbo].[component] on fk_component = id_component where measurement_date > DATEADD(mi, -200, GETDATE()) and fk_component = 1;`
-let queryRAM = `SELECT id_component, size, usage, measurement_date, item, speed, [dbo].[measurement].temperature from measurement inner join [dbo].[component] on fk_component = id_component where measurement_date > DATEADD(mi, -200, GETDATE()) and fk_component = 2;`
-let queryDISK = `SELECT id_component, usage, measurement_date, item, speed, [dbo].[measurement].temperature from measurement inner join [dbo].[component] on fk_component = id_component where measurement_date > DATEADD(mi, -200, GETDATE()) and fk_component IN(3,4);`
-let queryQtdDisk = `select count(id_component) as quantidade from [dbo].[component] where item = 'disco' and fk_server = 1;`
-
-router.get('/recuperar/cpu', function (req, res, next) {
 	sequelize.query(queryCPU, {
 		model: Medida
 	})
@@ -24,7 +36,26 @@ router.get('/recuperar/cpu', function (req, res, next) {
 		});
 });
 
-router.get('/recuperar/ram', function (req, res, next) {
+router.post('/recuperar/ram', function (req, res, next) {
+	let queryRAM = `SELECT 
+					server_name,
+					operational_system,
+					id_component, 
+					usage, 
+					size,
+					measurement_date, 
+					item, 
+					speed, 
+					[dbo].[measurement].temperature
+					from measurement 
+					inner join [dbo].[component] 
+					on fk_component = id_component 
+					inner join [dbo].[server]
+					on fk_server = id_server
+					where measurement_date > DATEADD(mi, -200, GETDATE()) 
+					and item like 'ram'
+					and server_name like '${req.body.hostName}'`
+
 	sequelize.query(queryRAM, {
 		model: Medida
 	})
@@ -37,7 +68,25 @@ router.get('/recuperar/ram', function (req, res, next) {
 		});
 });
 
-router.get('/recuperar/disco', function (req, res, next) {
+router.post('/recuperar/disco', function (req, res, next) {
+	let queryDISK = `SELECT 
+					server_name,
+					operational_system,
+					id_component, 
+					usage, 
+					measurement_date, 
+					item, 
+					speed, 
+					[dbo].[measurement].temperature
+					from measurement 
+					inner join [dbo].[component] 
+					on fk_component = id_component 
+					inner join [dbo].[server]
+					on fk_server = id_server
+					where measurement_date > DATEADD(mi, -200, GETDATE()) 
+					and item like 'disco'
+					and server_name like '${req.body.hostName}'`
+
 	sequelize.query(queryDISK, {
 		model: Medida
 	})
@@ -50,7 +99,14 @@ router.get('/recuperar/disco', function (req, res, next) {
 		});
 });
 
-router.get('/recuperar/quantidade/disco', function (req, res, next) {
+router.post('/recuperar/quantidade/disco', function (req, res, next) {
+	let queryQtdDisk = `
+	select count(id_component) as quantidade from [dbo].[component] 
+	inner join [dbo].[server]
+	on fk_server = id_server
+	where item = 'disco' 
+	and server_name like '${req.body.hostName}';`
+
 	sequelize.query(queryQtdDisk, {
 		model: Component
 	})

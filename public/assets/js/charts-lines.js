@@ -61,9 +61,18 @@ const lineConfig = {
 
 const lineCtx = document.getElementById('line')
 window.myLine = new Chart(lineCtx, lineConfig)
+var hostName = sessionStorage.getItem('hostName');
 
 function recuperarDadosCpu() {
-  fetch(`/medidas/recuperar/cpu`, { cache: 'no-store' }).then(function (response) {
+  fetch(`/medidas/recuperar/cpu`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      hostName: hostName
+    }) 
+    }).then(function (response) {
     if (response.ok) {
       response.json().then(function (resposta) {
         var stringfied = JSON.stringify(resposta)
@@ -74,7 +83,7 @@ function recuperarDadosCpu() {
             myLine.data.datasets[0].data.shift();
           }
 
-          myLine.data.datasets[0].data.push(parseFloat(data.usage));
+          myLine.data.datasets[0].data.push(parseFloat(data.usage.toFixed(2)));
           myLine.update();
         });
       });

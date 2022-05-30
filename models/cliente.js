@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
 			autoIncrement: true
 		},
 		client_name: {
-			field: 'name',
+			field: 'client_name',
 			type: DataTypes.STRING,
 			allowNull: false
 		},
@@ -28,24 +28,24 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		plan: {
-			field: 'plan',
+		client_plan: {
+			field: 'client_plan',
 			type: DataTypes.STRING,
-			allowNull: false
+			
 		},
 		client_password: {
-			field: 'password',
+			field: 'client_password',
 			type: DataTypes.STRING,
 			allowNull: false
 		},
 		proprietor: {
 			field: 'proprietor',
 			type: DataTypes.STRING,
-			allowNull: true
+		
 		},
 	}, 
 	{
-		tableName: 'dbo_client',
+		tableName: 'client',
 		freezeTableName: true, 
 		underscored: true,
 		timestamps: false,
