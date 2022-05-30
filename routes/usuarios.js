@@ -13,7 +13,7 @@ router.post('/autenticar', function(req, res, next) {
 	var email = req.body.n_login; // depois de .body, use o nome (name) do campo em seu formulário de login
 	var senha = req.body.n_senha; // depois de .body, use o nome (name) do campo em seu formulário de login	
 	
-	let instrucaoSql = `select * from dbo.user where email='${email}' and password='${senha}'`;
+	let instrucaoSql = `select * from dbo_user where email='${email}' and user_password='${senha}'`;
 	console.log(instrucaoSql);
 
 	sequelize.query(instrucaoSql, {
@@ -42,7 +42,53 @@ router.get('/fk/:id_client', function(req, res, next) {
 
 	id_client = req.params.id_client;
 	console.log(id_client);
-})
+});
+
+router.put('/editar/:id_user', function(req, res){
+	let user_email = req.body.n_f_email_a;
+	let nome = req.body.n_f_nome_a;
+	let senha = req.body.n_f_senha_a;
+	let idUsuario = req.params.id_user;
+	
+	Usuario.update(
+		{
+		  user_name: `${nome}`,
+		  email: `${user_email}`,
+		  user_password: `${senha}`,
+		},
+		{
+		  where: { id_user: `${idUsuario}` },
+		}
+	  ).then(
+		function (resultado) {
+			console.log("Usuário atualizado com sucesso!")
+			res.json(resultado);
+		}
+	)
+	.catch(
+		function (erro) {
+			console.log(erro);
+			console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+			res.status(500).json(erro.sqlMessage);
+		}
+	);
+
+});
+
+router.delete('/deletar/:id_user', function(req, res){
+	let idUsuario = req.params.id_user;
+
+	Usuario.destroy({
+		where: {
+			id_user: idUsuario,
+		}
+	}).then(resultado =>{
+		console.log(`Usuário excluído: ${resultado}`);
+	}).catch(erro =>{
+		console.log(erro);
+	
+	});
+});
 // Cadastrar usuário
 router.post('/cadastrar', function(req, res, next) {
 	
@@ -55,12 +101,13 @@ router.post('/cadastrar', function(req, res, next) {
 		fk_client: id_client
 
 	}).then(resultado => {
-		console.log(`Novo usuário criado: ${resultado}`)
+		console.log(`Novo usuário criado: ${resultado}`);
         res.send(resultado);
     }).catch(erro => {
 		console.error(erro);
 		res.status(500).send(erro.message);
   	});
+
 });
 
 

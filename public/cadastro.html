@@ -85,11 +85,11 @@
                 <option value="media">Media</option>
               </select>
 			</div>
+			<input id="in_plano" name="n_plano" type="text" style="display: none;">
 	<input id="in_senha" name="n_senha" placeholder="Senha" type="password">
 
 	<input id="in_senha_confirm" placeholder="Confirmar senha" type="password">
               
-
                 <button type="submit">Criar conta</button>
             </form>
 			<i>Já possui conta? <a href="./login.html" style="font-weight: bold;">Entrar</a></i>
@@ -111,6 +111,7 @@ function format(){
   // pegando o plano pela a pagina plano
   function selecaoPlano(){
   in_plano.value = sl_plano.value;
+  console.log("valor:::",in_plano.value)
 }
 
 function selectMedia(a){
@@ -192,6 +193,7 @@ function finalizarAguardar() {
         body: formulario
     }).then(function (response) {
         if (response.ok) {
+			console.log("Usuário cadastrado com sucesso!")
           window.location.href = 'login.html';
         } else {
 

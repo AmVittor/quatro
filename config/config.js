@@ -8,10 +8,14 @@ module.exports = {
       host: 'quatro-server.database.windows.net',
       dialect: 'mssql',
       xuse_env_variable: 'DATABASE_URL',
+      define: {
+        schema: "dbo"
+    },
       dialectOptions: {
         options: {
           encrypt: true
         }
+      
       },
       pool: { 
         max: 5,

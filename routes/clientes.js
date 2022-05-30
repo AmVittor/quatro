@@ -12,7 +12,7 @@ router.post('/autenticar', function(req, res, next) {
 	var login = req.body.n_login // depois de .body, use o nome (name) do campo em seu formulário de login
 	var senha = req.body.n_senha; // depois de .body, use o nome (name) do campo em seu formulário de login	
 	
-	let instrucaoSql = `select * from dbo.client where cnpj='${login}' and password='${senha}'`;
+	let instrucaoSql = `select * from dbo.client where cnpj='${login}' and client_password='${senha}'`;
 	console.log(instrucaoSql);
 
 	sequelize.query(instrucaoSql, {
@@ -36,24 +36,26 @@ router.post('/autenticar', function(req, res, next) {
   	});
 });
 
+
 /* Cadastrar cliente*/
 router.post('/cadastrar', function(req, res, next) {
 	console.log('Criando um usuário');
-	Cliente.create({
-        id_client: null,
-		client_name: req.body.n_nome,
-		market_segment: req.body.n_negocio,
-		cnpj: req.body.n_cnpj,
-		plan: req.body.n_plano,
-		client_password: req.body.n_senha,
-		proprietor: null
-	}).then(resultado => {
-		console.log(`Novo usuário criado: ${resultado}`)
-        res.send(resultado);
-    }).catch(erro => {
-		console.error(erro);
-		res.status(500).send(erro.message);
-  	});
+
+	   Cliente.create({
+           id_client: null,
+	   	client_name: req.body.n_nome,
+	   	market_segment: req.body.n_negocio,
+	   	cnpj: req.body.n_cnpj,
+	   	plan: req.body.n_plano,
+	   	client_password: req.body.n_senha,
+	   	proprietor: null
+	   }).then(resultado => {
+	   	console.log(`Novo usuário criado: ${resultado}`)
+           res.send(resultado);
+       }).catch(erro => {
+	   	console.error(erro);
+	   	res.status(500).send(erro.message);
+  	   });
 });
 
 
