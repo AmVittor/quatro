@@ -46,10 +46,18 @@ const barsCtx = document.getElementById('bars')
 window.myBar = new Chart(barsCtx, barConfig)
 var qtdDiscos = 0;
 var colors = ['#7e3af2', '#085555', '1aa308'];
+var hostName = sessionStorage.getItem('hostName');
 
 function recuperarQuantidadeDisco() {
-    fetch(`/medidas/recuperar/quantidade/disco`, { cache: 'no-store' }).then(function (response) {
-      console.log(response);
+    fetch(`/medidas/recuperar/quantidade/disco`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        hostName: hostName
+      })
+    }).then(function (response) {
       if (response.ok) {
         response.json().then(function (resposta) {
             this.qtdDiscos = resposta[0][0].quantidade
@@ -69,14 +77,22 @@ function setarLabels() {
       {
         data: [],
         backgroundColor: colors[i],
-        label: 'disco ' + (i + 1),
+        label: 'disco ' + (i + 1) + '(GB)',
       }
     )
   }
 }
 
 function recuperarDadosDisco() {
-  fetch(`/medidas/recuperar/disco`, { cache: 'no-store' }).then(function (response) {
+  fetch(`/medidas/recuperar/disco`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      hostName: hostName
+    }) 
+  }).then(function (response) {
     if (response.ok) {
       response.json().then(function (resposta) {
         var stringfied = JSON.stringify(resposta)
@@ -92,9 +108,9 @@ function recuperarDadosDisco() {
           var convertedToGB = parseFloat(data.usage) / 1024 / 1024 / 1024
 
           if(data.id_component == 3) {
-            myBar.data.datasets[0].data.push(convertedToGB)
+            myBar.data.datasets[0].data.push(convertedToGB.toFixed(2))
           } else {
-            myBar.data.datasets[1].data.push(convertedToGB * 1800)
+            myBar.data.datasets[1].data.push(convertedToGB.toFixed(2))
           }
 
           myBar.update();

@@ -491,7 +491,7 @@
                   </path>
                 </svg>
               </div>
-              <div>
+              <div id="teste" onclick="clicar('VMNOTE-379')">
                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
                   Total de visitas
                 </p>
@@ -628,7 +628,7 @@
                           <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                         </div>
                         <div>
-                          <p class="font-semibold">TradeMap</p>
+                          <p id="trademap" onclick="mostrar(id)" class="font-semibold">TradeMap</p>
                           <p class="text-xs text-gray-600 dark:text-gray-400">
                             Mercado de Investimentos
                           </p>
@@ -901,8 +901,14 @@
 </html>
 
 <script>
+
+
   window.onload = function() {
     recuperarQuantidadeDisco()
+    
+    function clicar(hostName) {
+    sessionStorage.setItem('hostName', JSON.stringify({hostName: 'VMNOTE-379'}))
+  }
   }
 
   function buscarDados() {
