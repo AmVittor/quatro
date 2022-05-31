@@ -457,12 +457,13 @@
 
 							id_confirmacaoAlterar.setAttribute("onclick", `mudar(${dbo_server.id_server})`);
 							id_confirmacaoDeletar.setAttribute("onclick", `excluir(${dbo_server.id_server})`);
-
+							divFifthText.setAttribute("onclick", `recuperar('${divFifthText.innerHTML}')`)
 							divSecondContainer.appendChild(divThirdCard);
 							divThirdCard.appendChild(divFourthCardHeader);
 							divFourthCardHeader.appendChild(divFifthText);
-							divFifthText.appendChild(h4Text);
-							divFifthText.appendChild(iItalic);
+							//descomentar código e arrumar quebras no html
+							// divFifthText.appendChild(h4Text);
+							// divFifthText.appendChild(iItalic);
 							divFourthCardHeader.appendChild(divSixthAlert);
 							divFourthCardHeader.appendChild(divCoverFirst);
 							divCoverFirst.appendChild(aEdit);
@@ -575,4 +576,9 @@ $('.class_inp').on('keyup',function(){
 		});
 
 	}
+
+	function recuperar(hostName) {
+    sessionStorage.setItem('hostName', JSON.stringify({hostName: `${hostName}`}))
+	window.location.href='dashboard.html'
+  	}
 </script>
