@@ -1,8 +1,9 @@
 # Quatro
-
+Docker java + mysql + executavel
+Conexão projeto Quatro (pi) via docker com mysql, azure e java executavel.
 
 ## Instalação
-Conexão projeto Quatro (pi) via docker com mysql, azure e java executavel. <br>
+
 Entrar no mysql
 ```
 sudo docker exec -it ContainerBD bash
@@ -11,7 +12,7 @@ mysql -u root -p
 
 
 
-## Possiveis problemas <br>
+## Possiveis problemas <br><br>
 ### Caso o docker exec acuse erro dizendo que não está running basta rodar: <br> <br>
 ` 
 sudo su root
