@@ -52,8 +52,6 @@ function recuperarDadosRAM() {
         var used;
         var difference;
         var avaliable;
-
-        console.log(parsed);
         parsed.forEach(data => {
           used = (data.usage * 100) / data.size
 
