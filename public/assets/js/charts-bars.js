@@ -111,11 +111,7 @@ function recuperarDadosDisco() {
           if(data.id_component == 3) {
             myBar.data.datasets[0].data.push(convertedToGB.toFixed(2))
           } else {
-<<<<<<< HEAD
             myBar.data.datasets[1].data.push((convertedToGB * 1800.).toFixed(2))
-=======
-            myBar.data.datasets[1].data.push(convertedToGB.toFixed(2))
->>>>>>> abe53beddd4005cf9de78cf27058e1ed404b1d57
           }
 
           myBar.update();
