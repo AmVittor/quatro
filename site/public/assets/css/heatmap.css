@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    /* Colors light */
+    --pink-main: #FD60AF;
+    --purple-dark: #554DD4;
+    --purple-light: #A45EE3;
+
+     /* Colors dark */
+     --yellow-main: #FABB28;
+     --black-light: #211E1F;
+     --black-main: #0C0C0C;
+     
+     /* Sombra */
+
+     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
+
+  }
+  @font-face {
+    font-family: 'Clarika';
+    src: url(./Wild\ Edge\ -\ Clarika\ Pro\ GeoDEMO\ Heavy.otf);
+}
+body{
+    height: 100vh;
+    background: linear-gradient(5deg, #554DD4 0%, #A45EE3 20%, #FD60AF 65%);
+}
+#container{
+    height: 80vh;
+    width: 84%;
+    margin-top: 5%;
+    margin-left: 10%;
+}

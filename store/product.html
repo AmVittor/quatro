@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://cdn.tailwindcss.com"></script>
+      <title>Produto</title>
+  </head>
+  <body>
+    <nav class="font-sans flex flex-col text-center content-center sm:flex-row sm:text-left sm:justify-between py-2 px-6 bg-white shadow sm:items-baseline w-full">
+        <div class="mb-2 sm:mb-0 inner">
+      
+          <a href="./index.html" class="text-2xl no-underline text-grey-darkest hover:text-blue-dark font-sans font-bold">BoxBox</a><br>
+          <span class="text-xs text-grey-dark">Beautiful New Tagline</span>
+      
+        </div>
+      
+        <div class="sm:mb-0 self-center">
+          <!-- <div class="h-10" style="display: table-cell, vertical-align: middle;"> -->
+          <a href="#" class="text-md no-underline text-black hover:text-blue-dark ml-2 px-1">Link1</a>
+          <a href="#" class="text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1">Link2</a>
+          <!-- <a href="/two" class="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2">About Us</a> -->
+          <a href="#" class="text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1">Link3</a>
+          <!-- </div> -->
+      
+        </div>
+      </nav>
+     
+        <div class="flex justify-center items-center">
+            <button class="hover:bg-black top-20 absolute z-0 w-40 py-4 text-white rounded focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">Show Model</button>
+            <div id="menu" class="md:px-6 px-4 py-12 w-full h-full flex justify-center ">
+                <div class="2xl:container 2xl:mx-auto relative flex justify-start w-96 md:w-10/12 xl:w-11/12 item-start flex-col lg:flex-row lg:space-x-8 py-12 md:py-16 lg:py-12 px-4 md:px-8 lg:px-16 bg-white">
+                    <div class="w-full">
+                        <div class="relative">
+                            <div class="slider">
+                                <div class="slide-ana flex flex-shrink-0">
+                                    <div class="flex flex-shrink-0" style="transform: translateX(-100%)">
+                                        <img class="lg:block hidden w-full h-full object-center object-cover" src="https://staticmobly.akamaized.net/r/2000x2000/p/Mobly-Rack-RetrC3B4-Paris-Off-White-162-cm-9025-750065-1.jpg" alt="A girl posing front" />
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="transition duration-150 absolute bottom-0 w-full h-full flex justify-between items-center px-4">
+                   
+                        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 md:mt-8 lg:mt-0 flex justify-start items-start w-full flex-col space-y-6">
+                        <h2 class="lg:text-2xl text-xl lg:leading-6 leading-5 text-black font-semibold">Plain White Tshirt</h2>
+                        <div class="flex justify-start items-center mt-4">
+                            <p class="font-normal text-lg leading-6text-black mr-4">$190</p>
+                            <div class="cursor-pointer flex space-x-2 mr-3">
+                               <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/quick_view_4-svg2.svg" alt="stars">
+                            </div>
+                            <p class="font-normal text-sm leading-3 hover:text-gray-700 duration-100 cursor-pointer text-gray-500 underline">18 reviews</p>
+                        </div>
+                        <div class="mt-10">
+                            <p id="text" class="font-semibold text-base leading-4 text-black">White</p>
+                            <div class="flex space-x-2 mt-4">
+                                <div tabindex="0" onclick="selected('White')" class="focus:outline-none ring-1 ring-transparent ring-offset-2 focus:ring-gray-800 rounded-full cursor-pointer w-8 h-8 bg-gray-50"></div>
+                                <div tabindex="0" onclick="selected('Red')" class="focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-gray-800 rounded-full cursor-pointer w-8 h-8 bg-red-700"></div>
+                                <div tabindex="0" onclick="selected('Yellow')" class="focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-gray-800 rounded-full cursor-pointer w-8 h-8 bg-yellow-300"></div>
+                            </div>
+                        </div>
+                        <div class="mt-10 w-full">
+                            <div class="flex justify-between">
+                                <p class="font-semibold text-base leading-4 text-black">Size</p>
+                                <p class="cursor-pointer hover:text-gray-800 font-medium text-base leading-4 text-gray-500 underline">Size guide</p>
+                            </div>
+                            <div class="grid grid-cols-3 gap-10 sm:flex sm:flex-wrap md:gap-4 sm:justify-between lg:justify-start mt-4">
+                                <div onclick="selectedSize('XSS')" id="XSS" class="font-medium text-base leading-4 text-gray-800 border border-gray-200 py-3 w-20 text-center cursor-pointer hover:border-gray-800 focus:border-gray-800">XXS</div>
+                                <div onclick="selectedSize('XS')" id="XS" class="font-medium text-base leading-4 text-gray-800 border border-gray-200 py-3 w-20 text-center cursor-pointer hover:border-gray-800 focus:border-gray-800">XS</div>
+                                <div onclick="selectedSize('S')" id="S" class="font-medium text-base leading-4 text-gray-800 border border-gray-200 py-3 w-20 text-center cursor-pointer hover:border-gray-800 focus:border-gray-800">S</div>
+                                <div onclick="selectedSize('M')" id="M" class="font-medium text-base leading-4 text-gray-800 border border-gray-200 py-3 w-20 text-center cursor-pointer hover:border-gray-800 focus:border-gray-800">M</div>
+                                <div onclick="selectedSize('L')" id="L" class="font-medium text-base leading-4 text-gray-800 border border-gray-200 py-3 w-20 text-center cursor-pointer hover:border-gray-800 focus:border-gray-800">L</div>
+                                <div onclick="selectedSize('XL')" id="XL" class="font-medium text-base leading-4 text-gray-800 border border-gray-200 py-3 w-20 text-center cursor-pointer hover:border-gray-800 focus:border-gray-800">XL</div>
+                            </div>
+                        </div>
+                        <p class="mt-4 font-normal text-sm leading-3 text-black duration-100 underline cursor-pointer">Find the perfect size?</p>
+
+                        <div class="flex flex-col w-full space-y-4 mt-10">
+                            <button class="border border-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 lg:w-96 w-full hover:bg-gray-900 text-base font-medium leading-4 bg-gray-800 py-4 text-white">Add to Bag</button>
+                            <button class="border border-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 lg:w-96 w-full hover:bg-gray-300 text-base font-medium leading-4 text-gray-800 py-4 bg-white">Add to Wishlist</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-3/6 ml-96">
+            <div class="flex  flex-col justify-start items-start w-full">
+                <div class="w-full bg-slate-300 	drop-shadow-md p-8">
+                    <div class="flex justify-between w-full">
+                        <div class="flex flex-col justify-between items-start">
+                            <p class="text-xl md:text-2xl font-medium leading-normal text-black">Avaliação Média</p>
+                            <img class="hidden dark:block" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productReview1-svg1dark.svg" alt="stars"/>
+                        
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="md:block">
+                 
+                        
+              
+                      
+                    </div>
+    
+                  
+                </div>
+            </div>
+        </div>
+        <div class="w-3/6 ml-96">
+            <div class="flex  flex-col justify-start items-start w-full">
+                <div class="w-full border-dashed border-2 border-yellow-300	 drop-shadow-md p-8">
+                    <div class="flex justify-between w-full">
+                        <div class="flex flex-row justify-between items-start">
+                            <p class="text-xl md:text-2xl font-medium leading-normal text-black">Beautiful addition to the theme</p>
+                        
+                        </div>
+                        
+                        <div class="cursor-pointer mt-2 md:mt-0">
+                            <div class="bg-black rounded-full p-2">
+                           <img class="hidden dark:block" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productReview1-svg1dark.svg" alt="stars"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:block">
+                        <div class="mt-6 flex justify-start items-center flex-row space-x-2.5">
+                            <div>
+                                <img src="https://i.ibb.co/QcqyrVG/Mask-Group.png" alt="girl-avatar" />
+                            </div>
+                            <div class="flex flex-col justify-start items-start space-y-2">
+                                <p class="text-base font-medium leading-none text-black">Anna Kendrick</p>
+                                <p class="text-sm leading-none text-black">14 July 2021</p>
+                            </div>
+                        </div>
+                        
+                        <p class="mt-3 text-base leading-normal text-black w-full md:w-9/12 xl:w-5/6">When you want to decorate your home, the idea of choosing a decorative theme can seem daunting. Some themes seem to have an endless amount of pieces, while others can feel hard to accomplish</p>
+                 
+                    </div>
+    
+                  
+                </div>
+            </div>
+        </div>
+        <div class="w-3/6 ml-96">
+            <div class="flex border-dashed border-2 border-yellow-300  flex-col justify-start items-start w-full">
+                <div class="w-full	drop-shadow-md p-8">
+                    <div class="flex justify-between w-full">
+                        <div class="flex flex-row justify-between items-start">
+                            <p class="text-xl md:text-2xl font-medium leading-normal text-black">Beautiful addition to the theme</p>
+                            <button class="ml-2 md:hidden">
+                                <img id="closeIcon" class="dark:hidden" src="../svg/svg2.svg" alt="stars"/>
+                                <img id="closeIcon" class="hidden dark:block" src="../svg/svg2.svg" alt="stars"/>
+                                <img id="openIcon" class="transform rotate-180 hidden dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productReview1-svg2.svg" alt="stars"/>
+                                <img id="openIcon" class="transform rotate-180 hidden dark:block" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productReview1-svg2.svg" alt="stars"/>
+                                
+                            </button>
+                        </div>
+                        
+                        <div class="cursor-pointer mt-2 md:mt-0">
+                           <div class="bg-black rounded-full p-2">
+                           <img class="hidden dark:block" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productReview1-svg1dark.svg" alt="stars"/>
+                           </div>
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="md:block">
+                        <div class="mt-6 flex justify-start items-center flex-row space-x-2.5">
+                            <div>
+                                <img src="https://i.ibb.co/QcqyrVG/Mask-Group.png" alt="girl-avatar" />
+                            </div>
+                            <div class="flex flex-col justify-start items-start space-y-2">
+                                <p class="text-base font-medium leading-none text-black">Anna Kendrick</p>
+                                <p class="text-sm leading-none text-black">14 July 2021</p>
+                            </div>
+                        </div>
+                        
+                        <p class="mt-3 text-base leading-normal text-black w-full md:w-9/12 xl:w-5/6">When you want to decorate your home, the idea of choosing a decorative theme can seem daunting. Some themes seem to have an endless amount of pieces, while others can feel hard to accomplish</p>
+            
+                      
+                    </div>
+    
+                  
+                </div>
+            </div>
+        </div>
+        <div class="w-3/6 ml-96">
+            <div class="flex border-dashed border-2 border-yellow-300 flex-col justify-start items-start w-full">
+                <div class="w-full 	drop-shadow-md p-8">
+                    <div class="flex justify-between w-full">
+                        <div class="flex flex-row justify-between items-start">
+                            <p class="text-xl md:text-2xl font-medium leading-normal text-black">Beautiful addition to the theme</p>
+                            <button class="ml-2 md:hidden">
+                                <img id="closeIcon" class="dark:hidden" src="../svg/svg2.svg" alt="stars"/>
+                                <img id="closeIcon" class="hidden dark:block" src="../svg/svg2.svg" alt="stars"/>
+                                <img id="openIcon" class="transform rotate-180 hidden dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productReview1-svg2.svg" alt="stars"/>
+                                <img id="openIcon" class="transform rotate-180 hidden dark:block" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productReview1-svg2.svg" alt="stars"/>
+                                
+                            </button>
+                        </div>
+                        
+                        <div class="cursor-pointer mt-2 md:mt-0">
+                            <div class="bg-black rounded-full p-2">
+                            <img class="hidden dark:block" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productReview1-svg1dark.svg" alt="stars"/>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="md:block">
+                        <div class="mt-6 flex justify-start items-center flex-row space-x-2.5">
+                            <div>
+                                <img src="https://i.ibb.co/QcqyrVG/Mask-Group.png" alt="girl-avatar" />
+                            </div>
+                            <div class="flex flex-col justify-start items-start space-y-2">
+                                <p class="text-base font-medium leading-none text-black">Anna Kendrick</p>
+                                <p class="text-sm leading-none text-black">14 July 2021</p>
+                            </div>
+                        </div>
+                        
+                        <p class="mt-3 text-base leading-normal text-black w-full md:w-9/12 xl:w-5/6">When you want to decorate your home, the idea of choosing a decorative theme can seem daunting. Some themes seem to have an endless amount of pieces, while others can feel hard to accomplish</p>
+          
+                      
+                    </div>
+    
+                  
+                </div>
+            </div>
+        </div>
+        <style>
+            .slider {
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .slide-ana {
+                height: 539px;
+            }
+
+            .slide-ana > div {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                transition: all 1s;
+            }
+        </style>
+        <script>
+            let slides = document.querySelectorAll(".slide-ana>div");
+            let slideSayisi = slides.length;
+            for (let index = 0; index < slides.length; index++) {
+                const element = slides[index];
+                element.style.transform = "translateX(" + 100 * index + "%)";
+            }
+            let loop = 0 + 1000 * slideSayisi;
+
+            function goNext() {
+                loop++;
+                for (let index = 0; index < slides.length; index++) {
+                    const element = slides[index];
+                    element.style.transform = "translateX(" + 100 * (index - (loop % slideSayisi)) + "%)";
+                }
+            }
+
+            function goPrev() {
+                loop--;
+                for (let index = 0; index < slides.length; index++) {
+                    const element = slides[index];
+                    element.style.transform = "translateX(" + 100 * (index - (loop % slideSayisi)) + "%)";
+                }
+            }
+
+            let menu = document.getElementById("menu");
+            const showMenu = (flag) => {
+                if (flag) {
+                    menu.classList.toggle("hidden");
+                }
+            };
+
+            function selected(color) {
+                document.getElementById("text").innerText = color;
+            }
+
+            function selectedSize(text) {
+                var ele = document.getElementById(text);
+                var parent = ele.parentNode;
+
+                var children = parent.children;
+                for (var i = 0; i < children.length; i++) {
+                    if (children[i].classList.contains("border-gray-800")) {
+                        children[i].classList.remove("border-gray-800");
+                    }
+                }
+                ele.classList.remove("border-gray-200");
+                ele.classList.add("border-gray-800");
+            }
+            
+        </script>
+    
+  </body>
+</html>

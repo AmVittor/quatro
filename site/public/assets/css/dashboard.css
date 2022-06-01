@@ -1,0 +1,94 @@
+/* Fonte */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    /* Colors light */
+    --pink-main: #FD60AF;
+    --purple-dark: #554DD4;
+    --purple-light: #A45EE3;
+    --green-good: #10b981;
+    --red-bad: #be123c;
+    --orange-medium: #f59e0b;
+
+
+     /* Colors dark */
+     --yellow-main: #FABB28;
+     --black-light: #211E1F;
+     --black-main: #0C0C0C;
+     
+     /* Sombra */
+
+     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
+
+  }
+  @font-face {
+    font-family: 'Clarika';
+    src: url(./Wild\ Edge\ -\ Clarika\ Pro\ GeoDEMO\ Heavy.otf);
+}
+body{
+   
+    background: var(--pink-main);
+}
+
+  h1, h2, h3{
+      font-family: 'Poppins';
+  }
+
+.graph{
+    background-color: white;
+    width: 66%;
+    border-radius: 5px;
+    height: 70vh;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
+}
+.graph-row{
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    height: 70vh;
+    margin-bottom: 1%;
+    padding-left: 7rem;
+    justify-content: space-evenly;
+}
+#heatmap{
+    width: 25%;
+    height: 90%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
+}
+
+.labels{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 8rem;
+    margin-bottom: 1%;
+    width: 60%;
+}
+.options{
+    border-radius: 5px;
+    width: 20%;
+    box-sizing: border-box;
+    padding: 1%;
+    background-color: white;
+    height: 90%;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.27);
+}
+.small-alert{
+    height: 25px; 
+    width: 25px; 
+    border-radius: 100%; 
+    background-color: red; 
+    float: right;
+}
+span{
+    font-size: 10px;
+}
+.alert-span{
+    font-size: 13px;
+}
+i{
+    font-size: 10px;
+    font-weight: bold;
+}

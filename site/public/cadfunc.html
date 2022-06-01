@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./assets/css/cadastro.css">
+    <link rel="stylesheet" href="./css/nav_&_footer.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- TailwindCSS -->
+     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+     <!-- Inter Font -->
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Cadastro</title>
+</head>
+<body>
+  <nav style="background-color: #A45EE3;" class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
+    <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+      <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+        <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">Quatro</a>
+        <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" onclick="toggleNavbar('example-collapse-navbar')">
+          <i class="text-white fas fa-bars"></i>
+        </button>
+      </div>
+      <div class="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden"
+        id="example-collapse-navbar">
+
+        <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+          <li class="flex items-center">
+            <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              href="./dashboard.html">
+              <span class=" inline-block ml-2">Dashboard</span>
+              </a>
+          </li>
+          <li class="flex items-center">
+            <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              href="./cadastro.html">
+              <span class=" inline-block ml-2">Cadastro</span>
+              </a>
+          </li>
+          <li class="flex items-center">
+            <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              href="./login.html">
+              <span class=" inline-block ml-2">Login</span>
+              </a>
+          </li>
+          <!-- <li class="flex items-center">
+            <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              href="#">
+              <span class=" inline-block ml-2">Ajuda</span>
+              </a>
+          </li> -->
+          <li class="flex items-center">
+            <a href="./plans.html"
+              class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
+               style="transition: all 0.15s ease 0s;">
+              Planos
+    </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div class="main">
+    <div class="container2">
+        <div class="text">
+            <h1>Cadastro</h1>
+            <h4>Cadastre seu <strong>Funcionário</strong></h4>
+        </div>
+        <form id="form_cadastro" name="cadastro" onsubmit="return cadastrar()">
+            
+                <input class="input-row-func" id="in_nome" name="n_nome" placeholder="Nome do seu Funcionário" type="text">
+                <input class="input-row-func" id="in_email" name="n_negocio" placeholder="email de seu Funcionário" type="text">
+                <input class="input-row" id="in_senha" name="n_negocio" placeholder="Senha" type="text">
+                <input class="input-row" id="in_senha_confirm" name="n_negocio" placeholder="Confirmar senha" type="text">
+
+            <button type="submit">Criar conta</button>
+        </form>
+        <i>Caso queira cancelar <a href="employes.html" style="font-weight: bold;">Voltar</a></i>
+        <div id="div_aguardar" style="display: none;">
+          <img style="height: 30px;"
+            src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif" id="loading-gif">
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="nav.js"></script>
