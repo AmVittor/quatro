@@ -123,7 +123,7 @@ public class Measurement extends TimerTask {
             e.printStackTrace();
            
                         
-            // memotia
+            // memoria
         } if (looca.getMemoria().getEmUso() <= alertaRam ) {
             logger.info("Alerta: Memoria esta ok");     
         } else {
