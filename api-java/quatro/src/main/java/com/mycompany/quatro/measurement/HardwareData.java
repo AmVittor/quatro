@@ -51,4 +51,6 @@ public class HardwareData {
     public void setDiskUsage(Double usage) {
         this.diskUsage += usage;
     }
+
+    
 }

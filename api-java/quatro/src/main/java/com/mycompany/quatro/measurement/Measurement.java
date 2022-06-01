@@ -2,9 +2,11 @@
 
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.temperatura.Temperatura;
-//import com.mycompany.quatro.log.Logs;
+import com.mycompany.quatro.log.Logs;
+import com.mycompany.quatro.login.User;
 import com.mycompany.quatro.slack.APP;
 import com.mycompany.quatro.slack.Slack;
+import java.io.IOException;
 import org.json.JSONObject;
 import oshi.SystemInfo;
 import oshi.software.os.FileSystem;
@@ -18,6 +20,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 public class Measurement extends TimerTask {
     HardwareData hardware = new HardwareData();
@@ -38,6 +43,13 @@ public class Measurement extends TimerTask {
 
     //database insertion
     Insertion insertion = new Insertion();
+        User user = new User();
+        Double alertaRam = 10.00;
+        Double alertaCpu = 60.99;
+        Integer alertaDisco = 10;
+        
+        
+        
 
 
     @Override
@@ -86,9 +98,58 @@ public class Measurement extends TimerTask {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
+                
+               // Gerador de logs
+        Logger logger = Logger.getLogger("MyLog");
+        FileHandler fileHandler;
+        try {
+            fileHandler = new FileHandler("src/main/resources/MyLogFile.txt");
+            logger.addHandler(fileHandler);
+            SimpleFormatter simpleFormatter = new SimpleFormatter();
+            fileHandler.setFormatter(simpleFormatter);
+            logger.info("Log to test");
+            if (user.getEmail() != user.getEmail() || user.getPassword() != user.getPassword()) {
+                logger.info("E-mail ou senha incorretos");
+            } else {
+                 logger.info("Login Realizado com Sucesso");
             }
 
-    public HardwareData getHardware() {
+          
+        } catch (SecurityException e) {
+            logger.info("Exception:" + e.getMessage());
+            e.printStackTrace();
+        } catch (IOException e) {
+            logger.info("IO Exception:" + e.getMessage());
+            e.printStackTrace();
+           
+                        
+            // memotia
+        } if (looca.getMemoria().getEmUso() <= alertaRam ) {
+            logger.info("Alerta: Memoria esta ok");     
+        } else {
+            logger.info("Alerta: Memoria esta no limite");  
+        } 
+        
+           // cpu
+        if (looca.getProcessador().getUso() <= alertaCpu) {
+            logger.info("Alerta: Processador esta ok ");
+        }else{
+            logger.info("Alerta: Processador esta no limite");
+        }
+        
+
+           // disco...   
+        if (looca.getGrupoDeDiscos().getTamanhoTotal()<= alertaDisco) {
+            logger.info("Alerta: disco esta ok");
+        } else{
+            logger.info("Alerta: Disco esta no limite");
+        }
+
+}
+            public HardwareData getHardware() {
         return hardware;
     }
-}
+            }
+ 
+
+
