@@ -1,101 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CRUD</title>
-<!-- TailwindCSS -->
-<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CRUD</title>
+	<!-- TailwindCSS -->
+	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 
-<!-- Inter Font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-<link rel="stylesheet" href="./css/sidebar.css">
+	<!-- Inter Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="./css/sidebar.css">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="./assets/css/crud.css">
-<link rel="stylesheet" href="./assets/css/emprise.css">
-<script type="text/javascript" src="./assets/js/funcoes.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="./assets/css/crud.css">
+	<link rel="stylesheet" href="./assets/css/emprise.css">
+	<script type="text/javascript" src="./assets/js/funcoes.js"></script>
+</head>
 
-  <body onload= "verificar_autenticacao(), pegar(idClient), listarServidores()">
+<body onload="verificar_autenticacao(), pegar(idClient), listarServidores()">
 
-	<nav style="background-color: #A45EE3;" class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
-        <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-          <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">Quatro</a>
-            <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" onclick="toggleNavbar('example-collapse-navbar')">
-              <i class="text-white fas fa-bars"></i>
-            </button>
-          </div>
-          <div class="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden"
-            id="example-collapse-navbar">
-    
-            <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
-              <li class="flex items-center">
-                <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="./dashboard.html">
-                  <span class=" inline-block ml-2">Dashboard</span>
-                  </a>
-              </li>
-              <li class="flex items-center">
-                <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="./cadastro.html">
-                  <span class=" inline-block ml-2">Cadastro</span>
-                  </a>
-              </li>
-              <li class="flex items-center">
-                <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="./login.html">
-                  <span class=" inline-block ml-2">Login</span>
-                  </a>
-              </li>
-              <!-- <li class="flex items-center">
+	<nav style="background-color: #A45EE3;"
+		class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
+		<div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+			<div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+				<a
+					class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">Quatro</a>
+				<button
+					class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+					type="button" onclick="toggleNavbar('example-collapse-navbar')">
+					<i class="text-white fas fa-bars"></i>
+				</button>
+			</div>
+			<div class="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden"
+				id="example-collapse-navbar">
+
+				<ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+					<li class="flex items-center">
+						<a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+							href="./dashboard.html">
+							<span class=" inline-block ml-2">Dashboard</span>
+						</a>
+					</li>
+					<li class="flex items-center">
+						<a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+							href="./cadastro.html">
+							<span class=" inline-block ml-2">Cadastro</span>
+						</a>
+					</li>
+					<li class="flex items-center">
+						<a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+							href="./login.html">
+							<span class=" inline-block ml-2">Login</span>
+						</a>
+					</li>
+					<!-- <li class="flex items-center">
                 <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                   href="#">
                   <span class=" inline-block ml-2">Ajuda</span>
                   </a>
               </li> -->
-              <li class="flex items-center">
-                <a href="./plans.html"
-                  class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
-                   style="transition: all 0.15s ease 0s;">
-                  Planos
-			  </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+					<li class="flex items-center">
+						<a href="./plans.html"
+							class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
+							style="transition: all 0.15s ease 0s;">
+							Planos
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	<div class="main">
-        <div class="header">
-            <div class="text-header">
-                <h2>Empresas adicionadas</h2>
-            </div>
-            <div class="search-header">
-                <input placeholder="Pesquisar..." class="search-header-input" type="text">
-            </div>
-        </div>
-<div class="detail">
-    <div class="container-button">
-		<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Servidor</span></a>
-		<!-- <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Alterar componente</span></a>						 -->
-    </div>
+		<div class="header">
+			<div class="text-header">
+				<h2>Empresas adicionadas</h2>
+			</div>
+			<div class="search-header">
+				<input placeholder="Pesquisar..." class="search-header-input" type="text">
+			</div>
+		</div>
+		<div class="detail">
+			<div class="container-button">
+				<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
+						class="material-icons">&#xE147;</i> <span>Adicionar Servidor</span></a>
+				<!-- <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Alterar componente</span></a>						 -->
+			</div>
 
-	<div class="container-button">
-		<a href="#addComponentsModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Componentes</span></a>
-		<!-- <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Alterar componente</span></a>						 -->
-    </div>
-</div>
+			<div class="container-button">
+				<a href="#addComponentsModal" class="btn btn-danger" data-toggle="modal"><i
+						class="material-icons">&#xE147;</i> <span>Adicionar Componentes</span></a>
+				<!-- <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Alterar componente</span></a>						 -->
+			</div>
+		</div>
 
+		<div id="div_lista" class="container-card">
 
-	<div id="div_lista">
-        <!-- <div class="container-card">
+		</div>
+		<!-- <div class="container-card">
 			<div class="card">
                 <div class="card-header">					
                     <div class="text">
@@ -111,10 +120,8 @@
                 <div class="card-body"></div>
             </div>
         </div> -->
-		</div>
-    </div>
 
-					
+	</div>
 	<!-- Modal adicionar servidor -->
 	<div id="addEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
@@ -151,28 +158,28 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form id="form_cadComponent" name="cadastro" onsubmit="return adicionarComponentes()">
-					<div class="modal-header">						
+					<div class="modal-header">
 						<h4 class="modal-title">Adicionar Componentes</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
-					<div class="modal-body">					
+					<div class="modal-body">
 						<select name="" id="sl_item" onchange="selecaoItem()">
-							<option value= "undefined"> Selecione</option>
+							<option value="undefined"> Selecione</option>
 							<option value="cpu">CPU</option>
 							<option value="ram">RAM</option>
 							<option value="disco">Disco</option>
-						  </select>
-			
-						  <input id="in_item" name="n_s_item" type="text" style="display: none;">
+						</select>
+
+						<input id="in_item" name="n_s_item" type="text" style="display: none;">
 
 						<div class="form-group">
 							<label>Tamanho</label>
 							<input type="text" id="in_tamanho" name="n_s_tamanho" class="form-control" required>
-						</div>	
+						</div>
 						<div class="form-group">
 							<label>Velocidade</label>
 							<input type="text" id="in_velocidade" name="n_s_velocidade" class="form-control" required>
-						</div>		
+						</div>
 
 					</div>
 					<div class="modal-footer">
@@ -219,11 +226,11 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form>
-					<div class="modal-header">						
+					<div class="modal-header">
 						<h4 class="modal-title">Deletar Servidor</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
-					<div class="modal-body">					
+					<div class="modal-body">
 						<p>Tem certeza que deseja deletar o servidor?</p>
 						<p class="text-warning"><small>Essa ação não pode ser desfeita</small></p>
 					</div>
@@ -237,112 +244,117 @@
 	</div>
 	<div id="div_aguardar" style="display: none;">
 		<img style="height: 30px;"
-		  src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif" id="loading-gif">
-	  </div>
+			src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif"
+			id="loading-gif">
+	</div>
 </body>
+
 </html>
 <script>
-	$(document).ready(function(){
-	// Activate tooltip
-	$('[data-toggle="tooltip"]').tooltip();
-	
-	// Select/Deselect checkboxes
-	var checkbox = $('table tbody input[type="checkbox"]');
-	$("#selectAll").click(function(){
-		if(this.checked){
-			checkbox.each(function(){
-				this.checked = true;                        
-			});
-		} else{
-			checkbox.each(function(){
-				this.checked = false;                        
-			});
-		} 
+
+	window.onload(sessionStorage.removeItem('server'))
+
+	$(document).ready(function () {
+		// Activate tooltip
+		$('[data-toggle="tooltip"]').tooltip();
+
+		// Select/Deselect checkboxes
+		var checkbox = $('table tbody input[type="checkbox"]');
+		$("#selectAll").click(function () {
+			if (this.checked) {
+				checkbox.each(function () {
+					this.checked = true;
+				});
+			} else {
+				checkbox.each(function () {
+					this.checked = false;
+				});
+			}
+		});
+		checkbox.click(function () {
+			if (!this.checked) {
+				$("#selectAll").prop("checked", false);
+			}
+		});
 	});
-	checkbox.click(function(){
-		if(!this.checked){
-			$("#selectAll").prop("checked", false);
+	const body = document.querySelector('body'),
+		sidebar = body.querySelector('nav'),
+		toggle = body.querySelector(".toggle"),
+		searchBtn = body.querySelector(".search-box"),
+		modeSwitch = body.querySelector(".toggle-switch"),
+		modeText = body.querySelector(".mode-text");
+
+
+	toggle.addEventListener("click", () => {
+		sidebar.classList.toggle("close");
+	})
+
+	searchBtn.addEventListener("click", () => {
+		sidebar.classList.remove("close");
+	})
+
+	modeSwitch.addEventListener("click", () => {
+		body.classList.toggle("dark");
+
+		if (body.classList.contains("dark")) {
+			modeText.innerText = "Light mode";
+		} else {
+			modeText.innerText = "Dark mode";
+
 		}
 	});
-});
-    const body = document.querySelector('body'),
-        sidebar = body.querySelector('nav'),
-        toggle = body.querySelector(".toggle"),
-        searchBtn = body.querySelector(".search-box"),
-        modeSwitch = body.querySelector(".toggle-switch"),
-        modeText = body.querySelector(".mode-text");
-
-
-    toggle.addEventListener("click", () => {
-        sidebar.classList.toggle("close");
-    })
-
-    searchBtn.addEventListener("click", () => {
-        sidebar.classList.remove("close");
-    })
-
-    modeSwitch.addEventListener("click", () => {
-        body.classList.toggle("dark");
-
-        if (body.classList.contains("dark")) {
-            modeText.innerText = "Light mode";
-        } else {
-            modeText.innerText = "Dark mode";
-
-        }
-    });
 </script>
 
 <script>
-	  function selecaoPlano(){
+	function selecaoPlano() {
 		in_plano.value = sl_plano.value;
-	  }
-	function adicionarComponentes(){
-	var item = in_item.value;
-    var velocidade = in_velocidade.value;
-    var tamanho = in_tamanho.value
-    
-    if (velocidade.trim() == "" ||  item.trim() == "undefined" || tamanho.trim() == "") {
-       window.alert("Preencha todos os campos/selecione para prosseguir!");
-       limparFormulario();
-      if (velocidade.trim() == "") {
-        console.log('velocidade está em branco');
-        limparFormulario();
-      }
+	}
+	function adicionarComponentes() {
+		var item = in_item.value;
+		var velocidade = in_velocidade.value;
+		var tamanho = in_tamanho.value
 
-      if (tamanho.trim() == "") {
-        console.log('tamanho está em branco');
-        limparFormulario();
-      }
-      if (sl_item.value == "undefined"){
-        console.log("Selecione um Item")
-        limparFormulario();
-      }
-      finalizarAguardar();
-      return false;
-    } 
-    
-    var formulario = new URLSearchParams(new FormData(form_cadComponent));
-    fetch("/servidores/add_comp", {
-        method: "POST",
-        body: formulario
-    }).then(function (response) {
-        if (response.ok) {
-          window.location.href = 'servers.html';
-        } else {
+		if (velocidade.trim() == "" || item.trim() == "undefined" || tamanho.trim() == "") {
+			window.alert("Preencha todos os campos/selecione para prosseguir!");
+			limparFormulario();
+			if (velocidade.trim() == "") {
+				console.log('velocidade está em branco');
+				limparFormulario();
+			}
 
-            console.log('Erro de cadastro!');
-            response.text().then(function (resposta) {
-                div_erro.innerHTML = resposta;
-            });
-        }
-    });
+			if (tamanho.trim() == "") {
+				console.log('tamanho está em branco');
+				limparFormulario();
+			}
+			if (sl_item.value == "undefined") {
+				console.log("Selecione um Item")
+				limparFormulario();
+			}
+			finalizarAguardar();
+			return false;
+		}
+
+		var formulario = new URLSearchParams(new FormData(form_cadComponent));
+		fetch("/servidores/add_comp", {
+			method: "POST",
+			body: formulario
+		}).then(function (response) {
+			if (response.ok) {
+				window.location.href = 'servers.html';
+			} else {
+
+				console.log('Erro de cadastro!');
+				response.text().then(function (resposta) {
+					div_erro.innerHTML = resposta;
+				});
+			}
+		});
 
 	}
 
 	function mudar(idAtual) {
-		if(ipDoInput == 'undefined, undefined, undefined' || ipDoInput == undefined){
-		 	window.alert("Insira o IP válido:")
+		if (ipDoInput == 'undefined, undefined, undefined' || ipDoInput == undefined) {
+			window.alert("Insira o IP válido:")
 			document.getElementsByTagName("cadServer").reset();
 		}
 		var hostname = in_hostname_a.value;
@@ -352,13 +364,13 @@
 		if (hostname.trim() == "" || so.trim() == "" || ip.trim() == "") {
 			window.alert("Preencha todos os campos/selecione para prosseguir!");
 			if (hostname.trim() == "") {
-				console.log('nome está em branco');	
+				console.log('nome está em branco');
 			}
 			if (so.trim() == "") {
-				console.log('cnpj está em branco');	
+				console.log('cnpj está em branco');
 			}
 			if (ip.trim() == "") {
-				console.log('senha está em branco')	
+				console.log('senha está em branco')
 			}
 		}
 
@@ -398,23 +410,21 @@
 
 	}
 
+	
 	function listarServidores() {
 		fetch("/servidores/")
 			.then(function (resposta) {
 				if (resposta.ok) {
 					resposta.json().then(function (resposta) {
-						console.log("Dados recebidos");
 
 						var feed = document.getElementById("div_lista");
 						div_lista.innerHTML = "";
 
 						for (let i = 0; i < resposta.length; i++) {
 							let dbo_server = resposta[i];
-
 							// criando e manipulando elementos do HTML via JavaScript
-							var divSecondContainer = document.createElement("div");
 							var divThirdCard = document.createElement("div");
-							var divFourthCardHeader= document.createElement("div");
+							var divFourthCardHeader = document.createElement("div");
 							var divFifthText = document.createElement("div");
 							var h4Text = document.createElement("h4");
 							var iItalic = document.createElement("i");
@@ -426,18 +436,20 @@
 							var iDelete = document.createElement("i");
 							var divCoverSecond = document.createElement("div");
 							var divSeventhCardBody = document.createElement("div");
+							var containerTextHeader = document.createElement("div");
+							var agroupEnd = document.createElement("div");
 
 							divFifthText.innerHTML = dbo_server.server_name;
 							iItalic.innerHTML = dbo_server.location;
-							
-							divSecondContainer.className = "container-card";
+
 							divThirdCard.className = "card";
 							divFourthCardHeader.className = "card-header";
 							divFifthText.className = "text";
 							h4Text.className = "card-text";
 							iItalic.className = "card-italic";
-							divSixthAlert.className = "alert"; 
+							divSixthAlert.className = "alert";
 							divSeventhCardBody.className = "card-body";
+							agroupEnd.className = "card-options"
 
 							iEdit.innerHTML = "&#xE254;";
 							iDelete.innerHTML = "&#xE872;";
@@ -454,25 +466,23 @@
 							iDelete.className = "material-icons";
 							iDelete.setAttribute("data-toggle", "tooltip");
 							iDelete.title = "Delete";
-
 							id_confirmacaoAlterar.setAttribute("onclick", `mudar(${dbo_server.id_server})`);
 							id_confirmacaoDeletar.setAttribute("onclick", `excluir(${dbo_server.id_server})`);
-							divFifthText.setAttribute("onclick", `recuperar('${divFifthText.innerHTML}')`)
-							divSecondContainer.appendChild(divThirdCard);
+							divFifthText.setAttribute("onclick", `recuperar(${JSON.stringify(dbo_server)})`);
 							divThirdCard.appendChild(divFourthCardHeader);
-							divFourthCardHeader.appendChild(divFifthText);
-							//descomentar código e arrumar quebras no html
-							// divFifthText.appendChild(h4Text);
-							// divFifthText.appendChild(iItalic);
-							divFourthCardHeader.appendChild(divSixthAlert);
-							divFourthCardHeader.appendChild(divCoverFirst);
+							containerTextHeader.appendChild(divFifthText);
+							containerTextHeader.appendChild(h4Text);
+							containerTextHeader.appendChild(iItalic);
+							divFourthCardHeader.appendChild(containerTextHeader);
+							agroupEnd.appendChild(divSixthAlert);
+							agroupEnd.appendChild(divCoverFirst);
 							divCoverFirst.appendChild(aEdit);
 							divCoverFirst.appendChild(aDelete);
 							aEdit.appendChild(iEdit);
 							aDelete.appendChild(iDelete);
+							divFourthCardHeader.appendChild(agroupEnd);
 							divThirdCard.appendChild(divSeventhCardBody);
-							
-							feed.appendChild(divSecondContainer);
+							feed.appendChild(divThirdCard);
 						}
 
 
@@ -490,11 +500,9 @@
 
 	var idClient = sessionStorage.cliente_id;
 
-	console.log("Id do Cliente:" + idClient);
-
 	function pegar(idClient) {
 		fetch(`/servidores/fk/${idClient}`, { cache: 'no-store' }).then(function (response) {
-			
+
 		});
 	}
 
@@ -502,41 +510,41 @@
 
 	let endereco;
 
-$('.class_inp').on('keyup',function(){
-	let out=''
-	$(".class_inp").each(function() {
-		   out += $(this).val();
-	});
-	ipDoInput = out.trim();
+	$('.class_inp').on('keyup', function () {
+		let out = ''
+		$(".class_inp").each(function () {
+			out += $(this).val();
+		});
+		ipDoInput = out.trim();
 
-	acharEnd();
-	console.log(ipDoInput);
-});
+		acharEnd();
+		console.log(ipDoInput);
+	});
 
 	function acharEnd() {
-		$.getJSON('https://ipapi.co/'+ipDoInput+'/json', function(data){
-			
+		$.getJSON('https://ipapi.co/' + ipDoInput + '/json', function (data) {
+
 			endereco = `${data.city}, ${data.region}, ${data.country_name}`;
 			console.log(endereco);
 		});
 	}
-	
-	function localizacao(endereco){
-		fetch(`/servidores/localizar/${endereco}`, { cache: 'no-store' }).then(function (response) {
-		});
-	
-	}
-	$("#in_ip_a").on("focusout", function() {
-        localizacao(endereco);
-        });
 
-	$("#input_ip").on("focusout", function() {
-        localizacao(endereco);
-        });
+	function localizacao(endereco) {
+		fetch(`/servidores/localizar/(${endereco}`, { cache: 'no-store' }).then(function (response) {
+		});
+
+	}
+	$("#in_ip_a").on("focusout", function () {
+		localizacao(endereco);
+	});
+
+	$("#input_ip").on("focusout", function () {
+		localizacao(endereco);
+	});
 
 	function cadastrar() {
-		 if(ipDoInput == 'undefined, undefined, undefined'){
-		 	window.alert("Insira o IP válido:")
+		if (ipDoInput == 'undefined, undefined, undefined') {
+			window.alert("Insira o IP válido:")
 			document.getElementsByTagName("cadServer").reset();
 		}
 		var hostname = in_hostname.value;
@@ -546,22 +554,22 @@ $('.class_inp').on('keyup',function(){
 		if (hostname.trim() == "" || so.trim() == "" || ip.trim() == "") {
 			window.alert("Preencha todos os campos/selecione para prosseguir!");
 			if (hostname.trim() == "") {
-				console.log('nome está em branco');	
+				console.log('nome está em branco');
 			}
 
 			if (so.trim() == "") {
-				console.log('cnpj está em branco');	
+				console.log('cnpj está em branco');
 			}
 			if (ip.trim() == "") {
-				console.log('senha está em branco')	
+				console.log('senha está em branco')
 			}
 
 		}
 		var formulario = new URLSearchParams(new FormData(form_cadServer));
 		fetch("/servidores/cadastrar", {
 			method: "POST",
-			body: formulario 
-			
+			body: formulario
+
 		}).then(function (response) {
 			if (response.ok) {
 				console.log("Servidor cadastrado com sucesso!");
@@ -577,8 +585,8 @@ $('.class_inp').on('keyup',function(){
 
 	}
 
-	function recuperar(hostName) {
-    sessionStorage.setItem('hostName', JSON.stringify({hostName: `${hostName}`}))
-	window.location.href='dashboard.html'
-  	}
+	function recuperar(server) {
+		sessionStorage.setItem("server", JSON.stringify(server))
+		window.location.href = 'dashboard.html'
+	}
 </script>

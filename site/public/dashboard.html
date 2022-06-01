@@ -512,10 +512,10 @@
               </div>
               <div>
                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                  Account balance
+                  Servidor
                 </p>
                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                  <span>Teste</span>
+                  <span id="server_name"></span>
                 </p>
               </div>
             </div>
@@ -532,8 +532,7 @@
                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
                   Localização
                 </p>
-                <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                  São Paulo
+                <p id="location" class="text-lg font-semibold text-gray-700 dark:text-gray-200">
                 </p>
               </div>
             </div>
@@ -548,10 +547,9 @@
               </div>
               <div>
                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                  Estado de alerta
+                  Sistema Operacional
                 </p>
-                <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                  3
+                <p id="operational_system" class="text-lg font-semibold text-gray-700 dark:text-gray-200">
                 </p>
               </div>
             </div>
@@ -593,16 +591,7 @@
                 Disco
               </h4>
               <canvas id="bars"></canvas>
-              <div class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400">
-                <!-- Chart legend -->
-                <div class="flex items-center">
-                  <span class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"></span>
-                  <span>Lorem</span>
-                </div>
-                <div class="flex items-center">
-                  <span class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"></span>
-                  <span>Lorem</span>
-                </div>
+              <div id="labels_disk" class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400">
               </div>
             </div>
           </div>
@@ -931,14 +920,36 @@
 </html>
 
 <script>
-<<<<<<< HEAD
-  window.onload = function () {
-=======
+
+  var server
 
 
   window.onload = function() {
->>>>>>> abe53beddd4005cf9de78cf27058e1ed404b1d57
+    validarServidor()
+    exibirTexto()
     recuperarQuantidadeDisco()
+  }
+
+  function validarServidor() {
+    if(sessionStorage.server == undefined) {
+      sessionStorage.server = null
+    }
+
+    server = JSON.parse(sessionStorage.server) 
+    if(server == undefined) {
+      window.alert("Escolha um servidor!")
+      window.location.href = "servers.html"
+    }
+  }
+
+  function exibirTexto() {
+    var server_name = document.getElementById("server_name")
+    var location = document.getElementById("location")
+    var operational_system = document.getElementById("operational_system")
+
+    server_name.innerHTML = server.server_name
+    location.innerHTML = server.location
+    operational_system.innerHTML = server.operational_system
   }
 
   function buscarDados() {

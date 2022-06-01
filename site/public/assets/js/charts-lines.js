@@ -1,17 +1,8 @@
-
 const lineConfig = {
   type: 'line',
   data: {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: ["", "", "", "", ""],
     datasets: [
-      // {
-      //   label: 'Organic',
-
-      //   backgroundColor: '#0694a2',
-      //   borderColor: '#0694a2',
-      //   data: [43, 48, 40, 54, 67, 73, 70],
-      //   fill: false,
-      // },
       {
         label: 'uso da cpu (%)',
         fill: false,
@@ -61,7 +52,7 @@ const lineConfig = {
 
 const lineCtx = document.getElementById('line')
 window.myLine = new Chart(lineCtx, lineConfig)
-var hostName = sessionStorage.getItem('hostName');
+var server = sessionStorage.getItem('server');
 
 function recuperarDadosCpu() {
   fetch(`/medidas/recuperar/cpu`, {
@@ -70,7 +61,7 @@ function recuperarDadosCpu() {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      hostName: hostName
+      hostName: server.server_name
     }) 
     }).then(function (response) {
     if (response.ok) {
@@ -78,8 +69,25 @@ function recuperarDadosCpu() {
         var stringfied = JSON.stringify(resposta)
         var parsed = JSON.parse(stringfied)
 
+        var firstHour = new Date(parsed[4].measurement_date)
+        var secondHour = new Date(parsed[3].measurement_date)
+        var thirdHour = new Date(parsed[2].measurement_date)
+        var fourthHour = new Date(parsed[1].measurement_date)
+        var fifthHour = new Date(parsed[0].measurement_date)
+
+        myLine.data.labels.splice(0, 5,
+          firstHour.toLocaleTimeString(),
+          secondHour.toLocaleTimeString(),
+          thirdHour.toLocaleTimeString(),
+          fourthHour.toLocaleTimeString(),
+          fifthHour.toLocaleTimeString()
+        )
+
+        myLine.update();
+        
         parsed.forEach(data => {
-          if (myLine.data.datasets[0].data.length == 10) {
+
+          if (myLine.data.datasets[0].data.length == 5) {
             myLine.data.datasets[0].data.shift();
           }
 
