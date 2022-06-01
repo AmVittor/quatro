@@ -110,26 +110,34 @@
     
       // Pegando o ID do cliente para inserir nos usuarios
       var idClient = sessionStorage.cliente_id;
-      
+      var planoClient = sessionStorage.cliente_plan;
+
       console.log("Id do Cliente:" + idClient);
+      console.log("Plano do Cliente:" + planoClient);
     
-      window.onload = pegar(idClient)
+      window.onload = pegarId(idClient);
+      window.onload = pegarPlano(planoClient);
     
-      function pegar(idClient){
-        fetch(`/servidores/fk/${idClient}`, { cache: 'no-store' }).then(function (response) {
+      function pegarId(idClient){
+        fetch(`/clientes/fk/${idClient}`, { cache: 'no-store' }).then(function (response) {
+        })
+      }
+
+      function pegarPlano(planoClient){
+        fetch(`/clientes/plan/${planoClient}`, { cache: 'no-store' }).then(function (response) {
         })
       }
         function cadastrar() {
           aguardar();
       
           var formulario = new URLSearchParams(new FormData(form_cadastro_server));
-          fetch("/servidores/cadastrar", {
+          fetch("/clientes/cadastrar_empresa", {
               method: "POST",
               body: formulario
           }).then(function (response) {
               if (response.ok) {
                 console.log("Servidor cadastrado com sucesso!")
-                window.location.href = 'emprises.html';
+                window.location.href = 'cadempriseUmbrella.html';
               } else {
       
                   console.log('Erro de cadastro!');

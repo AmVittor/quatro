@@ -4,6 +4,8 @@ var sequelize = require('../models').sequelize;
 var Cliente = require('../models').Cliente;
 
 let sessoes = [];
+let id_client;
+let plan_client;
 
 /* Recuperar usuário por login e senha */
 router.post('/autenticar', function(req, res, next) {
@@ -35,27 +37,60 @@ router.post('/autenticar', function(req, res, next) {
 		res.status(500).send(erro.message);
   	});
 });
+/* Pegando id do cliente*/
+router.get('/fk/:id_client', function(req, res, next) {
 
+	id_client = req.params.id_client;
 
+	console.log(id_client);
+});
+
+// Pegando plano do cliente
+
+router.get('/plan/:plan_client', function(req, res, next) {
+
+	plan_client = req.params.plan_client;
+
+	console.log(plan_client);
+});
+
+/*Cadastrar Empresa */
+router.post('/cadastrar_empresa', function(req, res, next) {
+	console.log('Criando uma empresa filiada');
+	Cliente.create({
+        id_client: null,
+		client_name: req.body.n_nome,
+		market_segment: req.body.n_negocio,
+		cnpj: req.body.n_cnpj,
+		client_plan: plan_client,
+		client_password: req.body.n_senha,
+		proprietor: id_client
+	}).then(resultado => {
+		console.log(`Nova empresa filiada criada: ${resultado}`)
+        res.send(resultado);
+    }).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
 /* Cadastrar cliente*/
 router.post('/cadastrar', function(req, res, next) {
 	console.log('Criando um usuário');
-
-	   Cliente.create({
-           id_client: null,
-	   	client_name: req.body.n_nome,
-	   	market_segment: req.body.n_negocio,
-	   	cnpj: req.body.n_cnpj,
-	   	plan: req.body.n_plano,
-	   	client_password: req.body.n_senha,
-	   	proprietor: null
-	   }).then(resultado => {
-	   	console.log(`Novo usuário criado: ${resultado}`)
-           res.send(resultado);
-       }).catch(erro => {
-	   	console.error(erro);
-	   	res.status(500).send(erro.message);
-  	   });
+	Cliente.create({
+        id_client: null,
+		client_name: req.body.n_nome,
+		market_segment: req.body.n_negocio,
+		cnpj: req.body.n_cnpj,
+		plan: req.body.n_plano,
+		client_password: req.body.n_senha,
+		proprietor: null
+	}).then(resultado => {
+		console.log(`Novo usuário criado: ${resultado}`)
+        res.send(resultado);
+    }).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
 });
 
 

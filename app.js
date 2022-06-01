@@ -10,6 +10,7 @@ var clientesRouter = require('./routes/clientes');
 var usuariosRouter = require('./routes/usuarios');
 var servidoresRouter = require('./routes/servidores');
 var medidasRouter = require('./routes/medidas');
+var componentsRouter = require('./routes/components');
 
 
 var app = express();
@@ -25,6 +26,7 @@ app.use('/clientes', clientesRouter);
 app.use('/usuarios', usuariosRouter);
 app.use('/servidores', servidoresRouter);
 app.use('/medidas', medidasRouter);
+app.use('/components', componentsRouter);
 
 
 module.exports = app;
