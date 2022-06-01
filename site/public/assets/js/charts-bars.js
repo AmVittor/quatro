@@ -1,7 +1,7 @@
 const barConfig = {
   type: 'bar',
   data: {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: ["", "", "", "", ""],
     datasets: [],
   },
   options: {
@@ -45,8 +45,9 @@ const barConfig = {
 const barsCtx = document.getElementById('bars')
 window.myBar = new Chart(barsCtx, barConfig)
 var qtdDiscos = 0;
-var colors = ['#7e3af2', '#085555', '1aa308'];
-var hostName = sessionStorage.getItem('hostName');
+var colors = ['#7e3af2', '#085555', '#1aa308', '#031680', '#06dabd', '#9acc0f', '#f0a911','#f02011', '#f01193', '#119ef0'];
+var server = sessionStorage.getItem('server');
+var labels_disk = document.getElementById("labels_disk")
 
 function recuperarQuantidadeDisco() {
     fetch(`/medidas/recuperar/quantidade/disco`, {
@@ -55,7 +56,7 @@ function recuperarQuantidadeDisco() {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        hostName: hostName
+        hostName: server.server_name
       })
     }).then(function (response) {
       if (response.ok) {
@@ -80,6 +81,14 @@ function setarLabels() {
         label: 'disco ' + (i + 1) + '(GB)',
       }
     )
+
+    labels_disk.innerHTML += 
+              `
+              <div class="flex items-center">
+              <span class="inline-block w-3 h-3 mr-1 rounded-full" style="background-color: ${colors[i]}"></span>
+              <span>Disco ${i + 1}</span>
+              </div>
+            `
   }
 }
 
@@ -90,7 +99,7 @@ function recuperarDadosDisco() {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      hostName: hostName
+      hostName: server.server_name
     }) 
   }).then(function (response) {
     if (response.ok) {
@@ -98,6 +107,22 @@ function recuperarDadosDisco() {
         var stringfied = JSON.stringify(resposta)
         var parsed = JSON.parse(stringfied)
 
+        var firstHour = new Date(parsed[4].measurement_date)
+        var secondHour = new Date(parsed[3].measurement_date)
+        var thirdHour = new Date(parsed[2].measurement_date)
+        var fourthHour = new Date(parsed[1].measurement_date)
+        var fifthHour = new Date(parsed[0].measurement_date)
+
+        myBar.data.labels.splice(0, 5,
+          firstHour.toLocaleTimeString(),
+          secondHour.toLocaleTimeString(),
+          thirdHour.toLocaleTimeString(),
+          fourthHour.toLocaleTimeString(),
+          fifthHour.toLocaleTimeString()
+        )
+
+        myBar.update();
+     
         parsed.forEach(data => {
           for (let j = 0; j < myBar.data.datasets.length;j++) {
             if (myBar.data.datasets[j].data.length == 10) {

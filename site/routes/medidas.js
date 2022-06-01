@@ -7,6 +7,7 @@ var Component = require('../models').Component;
 router.post('/recuperar/cpu', function (req, res, next) {
 	console.log("entrou no req", req.body.hostName);
 	let queryCPU = `SELECT 
+					top 5
 					server_name,
 					operational_system,
 					id_component, 
@@ -22,7 +23,8 @@ router.post('/recuperar/cpu', function (req, res, next) {
 					on fk_server = id_server
 					where measurement_date > DATEADD(mi, -200, GETDATE()) 
 					and item like 'cpu'
-					and server_name like '${req.body.hostName}'`
+					and server_name like '${req.body.hostName}'
+					order by measurement_date desc`
 
 	sequelize.query(queryCPU, {
 		model: Medida
@@ -38,6 +40,7 @@ router.post('/recuperar/cpu', function (req, res, next) {
 
 router.post('/recuperar/ram', function (req, res, next) {
 	let queryRAM = `SELECT 
+					top 5
 					server_name,
 					operational_system,
 					id_component, 
@@ -54,7 +57,8 @@ router.post('/recuperar/ram', function (req, res, next) {
 					on fk_server = id_server
 					where measurement_date > DATEADD(mi, -200, GETDATE()) 
 					and item like 'ram'
-					and server_name like '${req.body.hostName}'`
+					and server_name like '${req.body.hostName}'
+					order by measurement_date desc`
 
 	sequelize.query(queryRAM, {
 		model: Medida
@@ -70,6 +74,7 @@ router.post('/recuperar/ram', function (req, res, next) {
 
 router.post('/recuperar/disco', function (req, res, next) {
 	let queryDISK = `SELECT 
+					top 10
 					server_name,
 					operational_system,
 					id_component, 
@@ -85,7 +90,8 @@ router.post('/recuperar/disco', function (req, res, next) {
 					on fk_server = id_server
 					where measurement_date > DATEADD(mi, -200, GETDATE()) 
 					and item like 'disco'
-					and server_name like '${req.body.hostName}'`
+					and server_name like '${req.body.hostName}'
+					order by measurement_date desc`
 
 	sequelize.query(queryDISK, {
 		model: Medida

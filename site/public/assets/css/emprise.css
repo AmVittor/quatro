@@ -27,15 +27,15 @@ h1, h2, h3{
     font-family: 'Poppins';
 }
 .main{
-    height: 90vh;
-    padding-left: 20%;
+    padding-left: 2%;
+    height: 100vh;
 }
+
 .header{
     color: white;
     padding-left: 2%;
     padding-right: 2%;
     height: 100px;
-    width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,8 +45,9 @@ h1, h2, h3{
     align-items: center;
     width: 90%;
     justify-content: space-evenly;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
     padding-right: 7%;
+    padding-left: 2%;
 }
 .container-button{
     width:93%;
@@ -75,9 +76,9 @@ h1, h2, h3{
     outline: none;
 }
 .container-card{
-    width: 90%;
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 2.1rem;
 }
 
 input{
@@ -92,13 +93,13 @@ input{
 }
 .card{
     height: 180px;
-    width: 300px;
+    width: 30%;
     box-sizing: border-box;
     border-radius: 10px;
-    padding: 1%;
-
+    padding: 0.7rem;
     background-color: #211E1F;
     color: white;
+    margin: 1.5rem;
 }
 
 .card-italic{
@@ -109,6 +110,7 @@ input{
     width: 30px;
     border-radius: 100%;
     background-color: red;
+    margin-bottom: 0;
 }
 
 .card-body{
@@ -152,21 +154,10 @@ input{
         height: 30px;
         outline: none;
     }
-    .container-card{
-        width: 90%;
-        display: flex;
-        justify-content: space-evenly;
-    }
-    
     input{
         outline: none;
         border: none;
         padding: 1%;
-    }
-    .container-card{
-        width: 90%;
-        display: flex;
-        justify-content: space-evenly;
     }
 
 .card-body{
@@ -175,12 +166,7 @@ input{
     height: 35%;
     background-color: var(--pink-main);
 }
-.alert{
-    height: 20px;
-    width: 20px;
-    border-radius: 100%;
-    background-color: red;
-}
+
 }
 @media (max-width: 800px){
 
@@ -216,21 +202,10 @@ input{
         height: 30px;
         outline: none;
     }
-    .container-card{
-        width: 90%;
-        display: flex;
-        justify-content: space-evenly;
-    }
-    
     input{
         outline: none;
         border: none;
         padding: 1%;
-    }
-    .container-card{
-        width: 90%;
-        display: flex;
-        justify-content: space-evenly;
     }
 
 .card-body{
@@ -239,12 +214,7 @@ input{
     height: 55%;
     background-color: var(--pink-main);
 }
-.alert{
-    height: 20px;
-    width: 20px;
-    border-radius: 100%;
-    background-color: red;
-}
+
 }
 
 @media (max-width: 1000px){
@@ -281,33 +251,26 @@ input{
         height: 30px;
         outline: none;
     }
-    .container-card{
-        width: 90%;
-        display: flex;
-        justify-content: space-evenly;
-    }
-    
     input{
         outline: none;
         border: none;
         padding: 1%;
     }
-    .container-card{
-        width: 90%;
-        display: flex;
-        justify-content: space-evenly;
-    }
-
+    
 .card-body{
     border-radius: 5px;
     width: 100%;
     height: 55%;
     background-color: var(--pink-main);
 }
-.alert{
-    height: 20px;
-    width: 20px;
-    border-radius: 100%;
-    background-color: red;
+
 }
+
+.card-options {
+    display: flex;
+    align-items: flex-end;
+}
+
+.text {
+    cursor: pointer;
 }

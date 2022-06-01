@@ -33,7 +33,7 @@ const pieConfig = {
 // change this to the id of your chart element in HMTL
 const pieCtx = document.getElementById('pie')
 window.myPie = new Chart(pieCtx, pieConfig)
-var hostName = sessionStorage.getItem('hostName');
+var server = sessionStorage.getItem('server');
 
 function recuperarDadosRAM() {
   fetch(`/medidas/recuperar/ram`, {
@@ -42,7 +42,7 @@ function recuperarDadosRAM() {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      hostName: hostName
+      hostName: server.server_name
     }) 
    }).then(function (response) {
     if (response.ok) {
@@ -58,8 +58,6 @@ function recuperarDadosRAM() {
           difference = data.size - data.usage
           avaliable = (difference * 100) / data.size
 
-          console.log(difference);
-          console.log(avaliable);
           myPie.data.datasets[0].data.splice(0,1, parseFloat(used.toFixed(2)));
           myPie.data.datasets[0].data.splice(1,1, parseFloat(avaliable.toFixed(2)));
           myPie.update();
