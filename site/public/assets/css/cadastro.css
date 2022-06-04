@@ -58,6 +58,7 @@ body{
     align-items: center;
     justify-content: center;
     height: 90vh;
+    margin-top: 6%;
 }
 h1{
     margin: 0;
@@ -89,9 +90,10 @@ form {
     justify-content: space-around; 
 }
 
+
 input, select{
     box-sizing: border-box;
-    padding: 1%;
+    padding: 4%;
     height: 40px;
     width: 48%;
     border-radius: 3px;
