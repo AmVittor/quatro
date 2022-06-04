@@ -19,7 +19,7 @@
     <nav style="background-color: #A45EE3;" class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
         <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">Quatro</a>
+            <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" href="index.html">Quatro</a>
             <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" onclick="toggleNavbar('example-collapse-navbar')">
               <i class="text-white fas fa-bars"></i>
             </button>
@@ -75,14 +75,13 @@
 					<input class="input-row" id="in_nome" name="n_nome" placeholder="Nome" type="text">
 					<input class="input-row" id="in_negocio" name="n_negocio" placeholder="Negócio" type="text">
 				</div>
-				
               <div class="row">
               <input id="in_cnpj" name="n_cnpj" placeholder="CNPJ" type="number">
               <select name="" id="sl_plano" onchange="selecaoPlano()">
-                <option value="undefined"> Selecione um Plano</option>
-                <option value="startup">Start-Up</option>
-                <option value="profissional">Profissional</option>
-                <option value="media">Media</option>
+                <option value="undefined"> Selecione um Plano: </option>
+                <option value="freelancer">FreeLancers</option>
+                <option value="agencia">Agência</option>
+                <option value="empresa">Empresa</option>
               </select>
 			</div>
 			<input id="in_plano" name="n_plano" type="text" style="display: none;">
@@ -111,7 +110,7 @@ function format(){
   // pegando o plano pela a pagina plano
   function selecaoPlano(){
   in_plano.value = sl_plano.value;
-  console.log("valor:::",in_plano.value)
+  console.log("valor:",in_plano.value)
 }
 
 function selectMedia(a){

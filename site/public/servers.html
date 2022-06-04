@@ -32,7 +32,7 @@
 		<div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
 			<div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
 				<a
-					class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">Quatro</a>
+					class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" href="index.html" onclick="finalizar_sessao()" >Quatro</a>
 				<button
 					class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
 					type="button" onclick="toggleNavbar('example-collapse-navbar')">
@@ -79,28 +79,21 @@
 		</div>
 	</nav>
 	<div class="main">
-		<div class="header">
-			<div class="text-header">
-				<h2>Empresas adicionadas</h2>
-			</div>
-			<div class="search-header">
-				<input placeholder="Pesquisar..." class="search-header-input" type="text">
-			</div>
-		</div>
-		<div class="detail">
-			<div class="container-button">
-				<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
-						class="material-icons">&#xE147;</i> <span>Adicionar Servidor</span></a>
-				<!-- <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Alterar componente</span></a>						 -->
-			</div>
 
-			<div class="container-button">
-				<a href="#addComponentsModal" class="btn btn-danger" data-toggle="modal"><i
-						class="material-icons">&#xE147;</i> <span>Adicionar Componentes</span></a>
-				<!-- <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Alterar componente</span></a>						 -->
-			</div>
-		</div>
-
+        <div class="header">
+            <div class="text-header">
+                <h2>Servidores adicionadas</h2>
+            </div>
+            <div class="search-header">
+                <input placeholder="Pesquisar..." class="search-header-input" type="text">
+            </div>
+        </div>
+<div class="detail">
+    <div class="container-button">
+		<a href="#addServerModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Servidor</span></a>
+		<!-- <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Alterar componente</span></a>-->
+    </div>
+</div>
 		<div id="div_lista" class="container-card">
 
 		</div>
@@ -123,7 +116,7 @@
 
 	</div>
 	<!-- Modal adicionar servidor -->
-	<div id="addEmployeeModal" class="modal fade">
+	<div id="addServerModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form id="form_cadServer" name="cadServer" onsubmit="localizacao(endereco), cadastrar()">
@@ -179,7 +172,11 @@
 						<div class="form-group">
 							<label>Velocidade</label>
 							<input type="text" id="in_velocidade" name="n_s_velocidade" class="form-control" required>
-						</div>
+						</div>	
+						<div class="form-group">
+							<label>Temperatura Máxima</label>
+							<input type="text" id="in_velocidade" name="n_s_temp" class="form-control" required>
+						</div>		
 
 					</div>
 					<div class="modal-footer">
@@ -215,7 +212,7 @@
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
-						<input id="id_confirmacaoAlterar" type="submit" class="btn btn-info" value="Salvar">
+						<input id="id_confirmacaoAlterar" type="submit" class="btn btn-info" value="Salvar" onclick="mudar(idServidor)">
 					</div>
 				</form>
 			</div>
@@ -236,7 +233,7 @@
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
-						<input type="submit" id="id_confirmacaoDeletar" class="btn btn-danger" value="Deletar">
+						<input type="submit" id="id_confirmacaoDeletar" class="btn btn-danger" value="Deletar" onclick="mudar(idServidor)">
 					</div>
 				</form>
 			</div>
@@ -393,7 +390,7 @@
 		});
 
 	}
-
+	
 	function excluir(idAtual) {
 		fetch(`/servidores/deletar/${idAtual}`, {
 			method: "DELETE",
@@ -409,6 +406,13 @@
 		});
 
 	}
+let idServidor;
+	function pegarIdServidor(idServer) {
+		idServidor = idServer;
+		console.log(idServidor);
+			sessionStorage.setItem('servidor_id', idServidor);
+	}
+	
 
 	
 	function listarServidores() {
@@ -434,6 +438,8 @@
 							var iEdit = document.createElement("i");
 							var aDelete = document.createElement("a");
 							var iDelete = document.createElement("i");
+							var aComponent = document.createElement("a");
+							var iComponent = document.createElement("i");
 							var divCoverSecond = document.createElement("div");
 							var divSeventhCardBody = document.createElement("div");
 							var containerTextHeader = document.createElement("div");
@@ -451,22 +457,37 @@
 							divSeventhCardBody.className = "card-body";
 							agroupEnd.className = "card-options"
 
+							// in_ip_a.value = dbo_server.ip;
+							// in_so_a.value = dbo_server.operational_system;
+							// in_hostname_a.value = dbo_server.server_name;
+
+							iComponent.innerHTML = '&#xE147;';
 							iEdit.innerHTML = "&#xE254;";
 							iDelete.innerHTML = "&#xE872;";
 							aDelete.setAttribute("data-toggle", "modal");
+							aComponent.setAttribute("data-toggle", "modal");
 							aEdit.href = "#editEmployeeModal";
+							aComponent.href = "./components.html";
+							aComponent.className = "btn";
+							aEdit.id = dbo_server.id_server;
+							aDelete.id = dbo_server.id_server;
+							aComponent.id = dbo_server.id_server;
+							aEdit.setAttribute("onclick", `pegarIdServidor(${dbo_server.id_server})`);
+							aDelete.setAttribute("onclick", `pegarIdServidor(${dbo_server.id_server})`);
+							aComponent.setAttribute("onclick", `pegarIdServidor(${dbo_server.id_server})`);
 							aEdit.className = "edit";
 							aDelete.id = "exibirModal1";
 							aDelete.href = "#deleteEmployeeModal";
 							aDelete.className = "delete";
 							aEdit.setAttribute("data-toggle", "modal");
 							iEdit.className = "material-icons";
+							aComponent.className = "material-icons";
+							iComponent.className = "material-icons";
 							iEdit.setAttribute("data-toggle", "tooltip");
 							iEdit.title = "Edit";
 							iDelete.className = "material-icons";
 							iDelete.setAttribute("data-toggle", "tooltip");
 							iDelete.title = "Delete";
-							id_confirmacaoAlterar.setAttribute("onclick", `mudar(${dbo_server.id_server})`);
 							id_confirmacaoDeletar.setAttribute("onclick", `excluir(${dbo_server.id_server})`);
 							divFifthText.setAttribute("onclick", `recuperar(${JSON.stringify(dbo_server)})`);
 							divThirdCard.appendChild(divFourthCardHeader);
@@ -478,9 +499,13 @@
 							agroupEnd.appendChild(divCoverFirst);
 							divCoverFirst.appendChild(aEdit);
 							divCoverFirst.appendChild(aDelete);
+							divCoverFirst.appendChild(aComponent);
 							aEdit.appendChild(iEdit);
 							aDelete.appendChild(iDelete);
+
+							aComponent.appendChild(iComponent);
 							divFourthCardHeader.appendChild(agroupEnd);
+
 							divThirdCard.appendChild(divSeventhCardBody);
 							feed.appendChild(divThirdCard);
 						}

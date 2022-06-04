@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-
+    <script type="text/javascript" src="./assets/js/funcoes.js"></script>  
     <title>Planos</title>
 
     <meta name="description" content="Freebie 38 - Pricing Tables (Tailwind). Check out more at https://pixelcave.com">
@@ -26,7 +26,7 @@
     <nav style="background-color: #A45EE3;" class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
         <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">Quatro</a>
+            <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" href="index.html">Quatro</a>
             <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" onclick="toggleNavbar('example-collapse-navbar')">
               <i class="text-white fas fa-bars"></i>
             </button>
@@ -130,7 +130,7 @@
                             </li>
                         </ul>
                         <a class="px-4 py-3 text-white text-center uppercase font-semibold rounded bg-gray-700 hover:bg-gray-900 block w-full"
-                            href="javascript:void(0)">
+                            href="javascript:void(0)" id="freelancer" onclick="botaoPlano(this.id), redCadastro()">
                             Assinar
                         </a>
                     </div>
@@ -196,7 +196,7 @@
                             </li>
                         </ul>
                         <a class="px-4 py-3 text-white text-center uppercase font-semibold rounded bg-indigo-700 hover:bg-indigo-900 block w-full"
-                            href="javascript:void(0)">
+                            href="javascript:void(0)" id="agencia" onclick="botaoPlano(this.id), redCadastro()">
                             Assinar
                         </a>
                     </div>
@@ -257,7 +257,7 @@
                             </li>
                         </ul>
                         <a class="px-4 py-3 text-white text-center uppercase font-semibold rounded bg-gray-700 hover:bg-gray-900 block w-full"
-                            href="javascript:void(0)">
+                            href="javascript:void(0)" id="empresa" onclick="botaoPlano(this.id), redCadastro()">
                             Assinar
                         </a>
                     </div>

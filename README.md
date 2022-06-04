@@ -40,11 +40,17 @@ Lembre-se, atalhos de ctrl+c ou v não funcionam, use insert ou o botão direito
 <br><br><br>
 ## Script
 
-```#!/bin/bash
+```
+#!/bin/bash
+
+sudo passwd ubuntu
 
 echo \"Iniciando atualização dos pacotes...\"
 sudo apt update && sudo apt upgrade -y
 
+echo \"Baixando Java 11\"
+sudo apt install default-jre
+sudo apt install openjdk-11-jre-headlwss
 
 docker --version
 if [ $? -eq 0 ]
@@ -66,7 +72,7 @@ else
 echo \"MySql não instalado, instalando...\"
 sudo docker pull mysql:5.7
 echo \"Iniciando docker.\"
-sleep 5
+sleep 3
 sudo docker run -d -p 3306:3306 --name ContainerBD -e "MYSQL_DATABASE=4four" -e "MYSQL_ROOT_PASSWORD=urubu100" mysql:5.7
 fi
 else
@@ -74,14 +80,16 @@ echo \"Você escolheu não instalar o docker\"
 fi
 fi
 
+
 cat > Dockerfile <<EOF
 FROM openjdk:11
-WORKDIR /Java/
-COPY executavel-quatro.jar /Java/
-CMD ["java","-jar","executavel-quatro-jar"]
+WORKDIR /javaCli/
+COPY /executable_quatro.jar/ /javaCli/
+CMD ["java","-jar","executable_quatro.jar"]
 EOF
-sudo docker build . -t executavel-quatro-jar
 
-fi
+sudo docker build . -t executable_quatro-jar
+
+sudo docker run -it executable_quatro-jar
 
 ```
