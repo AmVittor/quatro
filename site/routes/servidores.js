@@ -118,7 +118,11 @@ router.put('/editar/:id_server', function(req, res){
 /* Recuperar todos os servidores */
 router.get('/', function(req, res, next) {
 	console.log('Recuperando todos os servidores');
-	Servidor.findAndCountAll().then(resultado => {
+	Servidor.findAndCountAll({
+		where :{
+			fk_client : id_client
+		}
+	}).then(resultado => {
 		console.log(`${resultado.count} registros`);
 
 		res.json(resultado.rows);
