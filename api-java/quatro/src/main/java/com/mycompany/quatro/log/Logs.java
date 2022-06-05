@@ -61,7 +61,7 @@ public class Logs {
 
     public void generate(String message) {
         try {
-            fileHandler = new FileHandler("../logs/QuatroLogs.txt");
+            fileHandler = new FileHandler("../QuatroLogs.txt");
             logger.addHandler(fileHandler);
             SimpleFormatter simpleFormatter = new SimpleFormatter();
             fileHandler.setFormatter(simpleFormatter);
