@@ -27,7 +27,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.mycompany.quatro.graphics.Login</mainClass>
+                            <mainClass>com.mycompany.quatro.measurement.InsertJavaCli</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

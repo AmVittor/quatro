@@ -1,8 +1,6 @@
 package com.mycompany.quatro.graphics;
 
-import com.mycompany.quatro.measurement.HardwareData;
 import com.mycompany.quatro.measurement.Measurement;
-import org.springframework.cglib.core.MethodWrapper;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -550,8 +548,11 @@ public class DashboardHome extends javax.swing.JFrame {
            @Override
            public void run() {
                 measurement.run();
+               labelRam.setText(measurement.getHardware().getRamUsage() + "GB");
+               txtCpu.setText(measurement.getHardware().getProcessorUsage() + "%");
+               txtHd.setText(measurement.getHardware().getDiskUsage() + "GB");
            }
-       }, 0, 5000);
+       }, 0, 60000);
     }//GEN-LAST:event_btnPlayActionPerformed
 
     private void btnStopActionPerformed(java.awt.event.ActionEvent evt) throws InterruptedException {//GEN-FIRST:event_btnStopActionPerformed

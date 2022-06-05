@@ -1,6 +1,7 @@
 package com.mycompany.quatro.graphics;
 
 import com.mycompany.quatro.connection.ConnectionSqlServer;
+import com.mycompany.quatro.log.Logs;
 import com.mycompany.quatro.login.User;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
@@ -425,20 +426,23 @@ public class Login extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         ConnectionSqlServer mssql = new ConnectionSqlServer();
-        List<User> UsersList = mssql.getMssql().query("select * from [dbo].[user];", new BeanPropertyRowMapper<>(User.class));
+        List<User> usersList = mssql.getMssql().query("select * from [dbo].[user];", new BeanPropertyRowMapper<>(User.class));
         Boolean userFind = false;
+        Logs log = new Logs();
 
-            for (User user: UsersList) {
-                if(txtUsername.getText().equals(user.getEmail()) && txtPassword.getText().equals(user.getPassword())) {
+            for (User user: usersList) {
+                if(txtUsername.getText().equals(user.getEmail()) && txtPassword.getText().equals(user.getUserPassword())) {
                     JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
                     this.dispose();
-                    new DashboardHome(user.getName()).setVisible(true);
+                    new DashboardHome(user.getUserName()).setVisible(true);
                     userFind = true;
+
+                    log.generateLoginLog(txtUsername.getText(), txtPassword.getText());
                 }
             }
 
 
-        if (userFind == false) {
+        if (!userFind) {
             JOptionPane.showMessageDialog(null, "Usuário e/ou senha incorretos.");
             txtUsername.setText("");
             txtPassword.setText("********");
