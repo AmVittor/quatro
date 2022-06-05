@@ -9,8 +9,7 @@ public class ConnectionSqlServer {
     public ConnectionSqlServer() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        dataSource.setUrl("jdbc:sqlserver://quatro-server.database.windows.net:1433;database=quatro_db;encrypt=true;" +
-                "trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;");
+        dataSource.setUrl("jdbc:sqlserver://quatro-server.database.windows.net:1433;database=quatro_db;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;");
         dataSource.setUsername("quatro");
         dataSource.setPassword("2ads$grupo3");
 

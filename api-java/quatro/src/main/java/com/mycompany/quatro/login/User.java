@@ -1,28 +1,30 @@
 package com.mycompany.quatro.login;
 
+import java.util.StringJoiner;
+
 public class User {
-    private Integer id;
-    private String name;
+    private Integer idUser;
+    private String userName;
 
     private String email;
-    private String password;
+    private String userPassword;
 
     private Integer fkClient;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdUser() {
+        return idUser;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdUser(Integer idUser) {
+        this.idUser = idUser;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String username) {
+        userName = username;
     }
 
     public String getEmail() {
@@ -33,12 +35,12 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
     public Integer getFkClient() {
@@ -51,13 +53,12 @@ public class User {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("User{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", email='").append(email).append('\'');
-        sb.append(", password='").append(password).append('\'');
-        sb.append(", fkClient=").append(fkClient);
-        sb.append('}');
-        return sb.toString();
+        return new StringJoiner(", ", User.class.getSimpleName() + "[", "]")
+                .add("idUser=" + idUser)
+                .add("userName='" + userName + "'")
+                .add("email='" + email + "'")
+                .add("userPassword='" + userPassword + "'")
+                .add("fkClient=" + fkClient)
+                .toString();
     }
 }

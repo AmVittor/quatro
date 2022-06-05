@@ -8,46 +8,95 @@ public class Insertion {
     ConnectionMysql mysql = new ConnectionMysql();
     ConnectionSqlServer mssql = new ConnectionSqlServer();
 
-    public void diskMeasurementInsertion(Long usage, String date, String uuid) {
-//        mysql.getMysql().update(
-//                "INSERT INTO " +
-//                        "measurement(usage, measurement_date, fk_component, usage_unit) " +
-//                    "VALUES" +
-//                        "(?, ?, ?, 'B')", usage, date, component);
-
+    public void diskMeasurementInsertion(Long usage, String date, String uuid, String hostName) {
         mssql.getMssql().update(
-                "INSERT INTO "
-                + "measurement(usage, measurement_date, fk_component, usage_unit) "
-                + "VALUES"
-                + "(?, ?, (select id_component from [dbo].[component] where UUID = '" + uuid + "'), 'B')", usage, date);
+            "INSERT INTO " +
+                "dbo.measurement(usage, measurement_date, fk_component, usage_unit) " +
+                "VALUES (" +
+                "?, " +
+                "?, " +
+                "(SELECT id_component FROM [dbo].[component] " +
+                "INNER JOIN [dbo].[server] " +
+                "ON fk_server = id_server " +
+                "WHERE item LIKE 'disco' " +
+                "AND UUID LIKE ? " +
+                "AND server_name LIKE ?), " +
+                "'B')", usage, date, uuid, hostName);
+
+        mysql.getMysql().update(
+            "INSERT INTO " +
+                "dbo_measurement(measurement_usage, measurement_date, fk_component, usage_unit) " +
+                "VALUES (" +
+                "?, " +
+                "?, " +
+                "(SELECT id_component FROM dbo_component " +
+                "INNER JOIN dbo_server " +
+                "ON fk_server = id_server " +
+                "WHERE item LIKE 'disco' " +
+                "AND UUID LIKE ? " +
+                "AND server_name LIKE ?), " +
+                "'B')", usage, date, uuid, hostName);
     }
 
-    public void cpuMeasurementInsertion(Long usage, Double temperature, String date, Integer component) {
-//        mysql.getMysql().update(
-//                "INSERT INTO " +
-//                        "measurement(usage, temperature, measurement_date, fk_component, usage_unit, temperature_unit) " +
-//                        "VALUES" +
-//                        "(?, ?, ?, ?, '%', 'ºC')", usage, temperature, date, component);
-
+    public void cpuMeasurementInsertion(Double usage, Double temperature, String date, String hostName) {
         mssql.getMssql().update(
-                "INSERT INTO "
-                + "measurement(usage, temperature, measurement_date, fk_component, usage_unit, temperature_unit) "
-                + "VALUES"
-                + "(?, ?, ?, ?, '%', 'ºC')", usage, temperature, date, component);
+                "INSERT INTO " +
+                    "[dbo].[measurement](usage, temperature, measurement_date, fk_component, usage_unit, temperature_unit) " +
+                    "VALUES (" +
+                    "?, " +
+                    "?, " +
+                    "?, " +
+                    "(SELECT id_component FROM [dbo].[component] " +
+                    "INNER JOIN [dbo].[server] " +
+                    "ON fk_server = id_server " +
+                    "WHERE item LIKE 'cpu' " +
+                    "AND server_name LIKE ?), " +
+                    "'%', " +
+                    "'C°')", usage, temperature, date, hostName);
+
+        mysql.getMysql().update(
+                    "INSERT INTO " +
+                        "dbo_measurement(measurement_usage, temperature, measurement_date, fk_component, usage_unit, temperature_unit) " +
+                        "VALUES (" +
+                        "?, " +
+                        "?, " +
+                        "?, " +
+                        "(SELECT id_component FROM dbo_component " +
+                        "INNER JOIN dbo_server "  +
+                        "ON fk_server = id_server " +
+                        "WHERE item LIKE 'cpu' " +
+                        "AND server_name LIKE ?), " +
+                        "'%', " +
+                        "'C°')", usage, temperature, date, hostName);
+
     }
 
-    public void memoryMeasurementInsertion(Long usage, String date, Integer component) {
-//        mysql.getMysql().update(
-//                "INSERT INTO " +
-//                        "measurement(usage, measurement_date, fk_component, usage_unit) " +
-//                        "VALUES" +
-//                        "(?, ?, ?, 'B')", usage, date, component);
-
+    public void memoryMeasurementInsertion(Long usage, String date, String hostName) {
         mssql.getMssql().update(
-                "INSERT INTO "
-                + "measurement(usage, measurement_date, fk_component, usage_unit) "
-                + "VALUES"
-                + "(?, ?, ?, 'B')", usage, date, component);
+                "INSERT INTO " +
+                        "[dbo].[measurement](usage, measurement_date, fk_component, usage_unit) " +
+                        "VALUES (" +
+                        "?, " +
+                        "?, " +
+                        "(SELECT id_component FROM [dbo].[component] " +
+                        "INNER JOIN [dbo].[server] " +
+                        "ON fk_server = id_server " +
+                        "WHERE item LIKE 'ram' " +
+                        "AND server_name LIKE ?), " +
+                        "'B')", usage, date, hostName);
+
+        mysql.getMysql().update(
+                    "INSERT INTO " +
+                        "dbo_measurement(measurement_usage, measurement_date, fk_component, usage_unit) " +
+                        "VALUES (" +
+                        "?, " +
+                        "?, " +
+                        "(SELECT id_component FROM dbo_component " +
+                        "INNER JOIN dbo_server " +
+                        "ON fk_server = id_server " +
+                        "WHERE item LIKE 'ram' " +
+                        "AND server_name LIKE ?), " +
+                        "'B')", usage, date, hostName);
     }
 
 }

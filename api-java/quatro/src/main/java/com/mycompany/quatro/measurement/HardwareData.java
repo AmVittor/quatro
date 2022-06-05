@@ -6,6 +6,7 @@ import oshi.software.os.FileSystem;
 import oshi.software.os.OSFileStore;
 import oshi.software.os.OperatingSystem;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class HardwareData {
@@ -15,25 +16,27 @@ public class HardwareData {
     List<OSFileStore> osFileStores = fileSystem.getFileStores();
     Looca looca = new Looca();
     private Double processorUsage;
-    private Double diskUsage;
-    private Double ramUsage;
+    private Long diskUsage;
+    private Long ramUsage;
+
+    private DecimalFormat decimalFormat =  new DecimalFormat("0.00");
 
     public HardwareData() {
         this.processorUsage = 0.0;
-        this.ramUsage = 0.0;
-        this.diskUsage = 0.0;
+        this.ramUsage = 0L;
+        this.diskUsage = 0L;
     }
 
     public String getProcessorUsage() {
-       return Double.toString(this.processorUsage);
+        return decimalFormat.format(this.processorUsage);
     }
 
     public String getDiskUsage() {
-        return Double.toString(this.diskUsage);
+        return decimalFormat.format(this.diskUsage / 1024 / 1024/ 1024);
     }
 
     public String getRamUsage() {
-        return Double.toString(this.ramUsage);
+        return decimalFormat.format(this.ramUsage / 1024 / 1024/ 1024);
     }
 
     public String getOperationalSystem() {
@@ -44,13 +47,11 @@ public class HardwareData {
         this.processorUsage = usage;
     }
 
-    public void setRamUsage(Double usage) {
+    public void setRamUsage(Long usage) {
         this.ramUsage = usage;
     }
 
-    public void setDiskUsage(Double usage) {
+    public void setDiskUsage(Long usage) {
         this.diskUsage += usage;
     }
-
-    
 }
