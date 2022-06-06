@@ -119,6 +119,10 @@ input{
     height: 65%;
     background-color: var(--pink-main);
 }
+#myMap{
+    width: 100%;
+    height: 65%;
+}
 
 @media (max-width: 600px){
 

@@ -17,7 +17,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="./css/sidebar.css">
-
+	<script type='text/javascript'
+	src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AnlFvrcCI9uCYI-9Z4AM-53ps2B2aWc_QAtNhwiPReOExatwy8OnOuYYX9o37w-C' 
+	async defer></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="./assets/css/crud.css">
@@ -26,7 +28,7 @@
 	
 </head>
 
-<body onload="verificar_autenticacao(), pegar(idClient), listarServidores()">
+<body onload="verificar_autenticacao(),pegar(idClient), listarServidores()">
 
 	<nav style="background-color: #A45EE3;"
 		class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
@@ -98,7 +100,7 @@
 		<div id="div_lista" class="container-card">
 
 		</div>
-		<!-- <div class="container-card">
+		 <!-- <div class="container-card">
 			<div class="card">
                 <div class="card-header">					
                     <div class="text">
@@ -111,9 +113,9 @@
 						<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 					</div>					
                 </div>				
-                <div class="card-body"></div>
+				<div id="myMap"></div>
             </div>
-        </div> -->
+        </div>  -->
 
 	</div>
 	<!-- Modal adicionar servidor -->
@@ -148,46 +150,6 @@
 		</div>
 	</div>
 
-	<div id="addComponentsModal" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form id="form_cadComponent" name="cadastro" onsubmit="return adicionarComponentes()">
-					<div class="modal-header">
-						<h4 class="modal-title">Adicionar Componentes</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">
-						<select name="" id="sl_item" onchange="selecaoItem()">
-							<option value="undefined"> Selecione</option>
-							<option value="cpu">CPU</option>
-							<option value="ram">RAM</option>
-							<option value="disco">Disco</option>
-						</select>
-
-						<input id="in_item" name="n_s_item" type="text" style="display: none;">
-
-						<div class="form-group">
-							<label>Tamanho</label>
-							<input type="text" id="in_tamanho" name="n_s_tamanho" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label>Velocidade</label>
-							<input type="text" id="in_velocidade" name="n_s_velocidade" class="form-control" required>
-						</div>	
-						<div class="form-group">
-							<label>Temperatura Máxima</label>
-							<input type="text" id="in_velocidade" name="n_s_temp" class="form-control" required>
-						</div>		
-
-					</div>
-					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="submit" class="btn btn-success" value="Add">
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
 	<!-- Modal Editar -->
 	<div id="editEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
@@ -413,9 +375,8 @@ let idServidor;
 		console.log(idServidor);
 			sessionStorage.setItem('servidor_id', idServidor);
 	}
-	
-
-	
+	var listaIdMapas = [];
+	var listaLocalizacao = [];
 	function listarServidores() {
 		fetch("/servidores/")
 			.then(function (resposta) {
@@ -448,6 +409,12 @@ let idServidor;
 
 							divFifthText.innerHTML = dbo_server.server_name;
 							iItalic.innerHTML = dbo_server.location;
+
+							divSeventhCardBody.id = dbo_server.server_name;
+							listaIdMapas.push(dbo_server.server_name);
+							listaLocalizacao.push(dbo_server.location);
+
+							geocode();
 
 							divThirdCard.className = "card";
 							divFourthCardHeader.className = "card-header";
@@ -491,6 +458,7 @@ let idServidor;
 							iDelete.title = "Delete";
 							id_confirmacaoDeletar.setAttribute("onclick", `excluir(${dbo_server.id_server})`);
 							divFifthText.setAttribute("onclick", `recuperar(${JSON.stringify(dbo_server)})`);
+
 							divThirdCard.appendChild(divFourthCardHeader);
 							containerTextHeader.appendChild(divFifthText);
 							containerTextHeader.appendChild(h4Text);
@@ -509,9 +477,8 @@ let idServidor;
 
 							divThirdCard.appendChild(divSeventhCardBody);
 							feed.appendChild(divThirdCard);
+
 						}
-
-
 					});
 				} else {
 					throw ('Houve um erro na API!');
@@ -616,3 +583,48 @@ let idServidor;
 		window.location.href = 'dashboard.html'
 	}
 </script>
+<script type='text/javascript'>
+    var BingMapsKey = 'AnlFvrcCI9uCYI-9Z4AM-53ps2B2aWc_QAtNhwiPReOExatwy8OnOuYYX9o37w-C';
+	
+    function geocode() {
+		for(var j = 0; j < listaLocalizacao.length; j++){
+			var geocodeRequest = "http://dev.virtualearth.net/REST/v1/Locations?query=" + encodeURIComponent(listaLocalizacao[j]) + "&jsonp=GeocodeCallback&key=" + BingMapsKey;
+
+        	CallRestService(geocodeRequest, GeocodeCallback);
+		}
+    
+    }
+	var locationResults = [];
+	var adressNumbers = [];
+    function GeocodeCallback(response) {
+        if (response &&
+            response.resourceSets &&
+            response.resourceSets.length > 0 &&
+            response.resourceSets[0].resources) {
+
+            var results = response.resourceSets[0].resources;
+			var cont = 0;
+				for( var i = 0; i < listaIdMapas.length; i++){
+					locationResults.push(results[0].point.coordinates[0], results[0].point.coordinates[1]);
+					adressNumbers = [...new Set(locationResults)];
+
+					var map = new Microsoft.Maps.Map(`#${listaIdMapas[i]}`,{
+						center: new Microsoft.Maps.Location(adressNumbers[cont], adressNumbers[cont+1]),
+						zoom: 12
+            		});
+					cont+=2;
+				}
+
+        } else {
+            console.log("Nenhum mapa encontrado!")
+        }
+    }
+
+    function CallRestService(request) {
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        script.setAttribute("src", request);
+        document.body.appendChild(script);
+    }
+
+    </script>
