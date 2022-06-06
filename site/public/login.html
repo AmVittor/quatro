@@ -1,129 +1,254 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./assets/css/login.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./assets/css/nav_&_footer.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <script src="./assets/js/compute-access.js"></script>
 </head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+.nav{
+    background-color: #FD60AF;
+}
+.main{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 90vh;
+        justify-content: center;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        height: 360px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        border-radius: 15px;
+        padding: 2%;
+        width: 370px;
+    }
+
+    input{
+      background-color: transparent;
+        padding: 10px;
+        width: 90%;
+        border-radius: 5px;
+        border: 2px solid var(--pink-main);
+        outline: none;
+    }
+    .bn5 {
+      padding: 0.6em 2em;
+        width: 40%;
+        border: none;
+        background-color: #A45EE3;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        outline: none;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 10px;
+}
+
+.bn5:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowingbn5 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowingbn5 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.bn5:active:after {
+  background: transparent;
+}
+
+.bn5:hover:before {
+  opacity: 1;
+}
+
+.bn5:after {
+  z-index: -1;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #A45EE3;
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+}
+</style>
 <body>
-
-    <div class="main">
-        <div class="container">
-            <h1>Login</h1>
-            <h4>Entre em sua conta <span>Quatro!</span> </h4>
-            <form action="#" id="form_login" name="login" onsubmit="return entrar()"> 
-                <label for="">Login</label>
-                <input id="in_login" placeholder="Login" type="text" name="n_login">
-
-                <label for="">Senha</label>
-                <input id="in_senha" placeholder="*******" type="password" name="n_senha">
-
-                <button type="submit">Entrar</button>
-                <i>Esqueceu sua senha? <a href="./cadastro.html" style="font-weight: bold;">Redefinir</a></i>
-
-                <i>Não possui conta? <a href="./cadastro.html" style="font-weight: bold;">Criar uma</a></i>
-            </form>
-            <div id="div_aguardar" style="display: none;">
-              <img style="height: 30px;"
-                src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif" id="loading-gif">
-            </div>
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+          <div class="nav-title">
+            Quatro
+          </div>
         </div>
-    </div>
+        <div class="nav-btn">
+          <label class="nav-label" for="nav-check">
+            <span class="nav-span"></span>
+            <span class="nav-span"></span>
+            <span class="nav-span"></span>
+          </label>
+        </div>
+        
+        <div class="nav-links">
+            <a class="link-redirect" href="./index.html">Inicio</a>
+          <a class="link-redirect" href="./login.html">Login</a>
+          <a class="link-redirect" href="./dashboard.html">Dashboard</a>
+          <a class="link-redirect" href="">Quem somos</a>
+          <a class="link-redirect" href="./plans.html">Planos</a>
+        </div>
+      </div>
+      <div class="main">
+          <h1>Entre na sua conta Quatro</h1>
+        <form id="form_login" action="" name="login" onsubmit="return entrar()">
+            <label for="">Login</label>
+            <input id="in_login" type="text">
+            <label for="">Senha</label>
+            <input id="in_senha" type="password">
+    
+            <button type="submit" class="bn5">Entrar</button>
+            <h4>Não tem uma conta? <a href=""><b>Crie uma</b></a></h4>
+        </form>
+        <div id="div_aguardar" style="display: none;">
+            <img style="height: 30px;" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif" id="loading-gif">
+          </div>
+      </div>
+  
 </body>
 </html>
-</body>
-<script src="nav.js"></script>
 <script>
-function aguardar() {
-    var divAguardar = document.getElementById("div_aguardar");
-    divAguardar.style.display = "block";
-}
-
-function finalizarAguardar() {
-  aguardar();
-  var divAguardar = document.getElementById("div_aguardar");
-    divAguardar.style.display = "none";
-}
-
-  function limparFormulario() {
-    document.getElementById("form_login").reset();
-  }
-
-  function entrar() {
-    aguardar();
-    let validarNumero = isNaN(in_login.value);
-
-    if(validarNumero){
-      var formulario = new URLSearchParams(new FormData(form_login));
-    fetch("/usuarios/autenticar", {
-      method: "POST",
-      body: formulario
-    }).then(resposta => {
-
-      if (resposta.ok) {
-
-        resposta.json().then(json => {
-
-          sessionStorage.usuario_nome = json.user_name;
-          sessionStorage.usuario_email = json.email;
-          sessionStorage.usuario_id = json.id_user;
-          
-          window.location.href = 'dashboard.html';
-        });
-
-      } else {
-
-        console.log('Erro de login!');
-
-        resposta.text().then(texto => {
-          console.error(texto);
-          finalizarAguardar(texto);
-          window.alert(texto);
-          limparFormulario()
-        });
-      }
-    });
-     
-    return false;
-    
-    }else{
-      
-    var formulario = new URLSearchParams(new FormData(form_login));
-    fetch("/clientes/autenticar", {
-      method: "POST",
-      body: formulario
-    }).then(resposta => {
-
-      if (resposta.ok) {
-
-        resposta.json().then(json => {
-
-          sessionStorage.cliente_nome = json.client_name;
-          sessionStorage.cliente_cnpj = json.cnpj;
-          sessionStorage.cliente_id = json.id_client;
-          sessionStorage.cliente_plan = json.client_plan;
-          
-          window.location.href = 'servers.html';
-        });
-
-      } else {
-
-        console.log('Erro de login!');
-
-        resposta.text().then(texto => {
-          console.error(texto);
-          finalizarAguardar(texto);
-          window.alert(texto);
-          limparFormulario()
-        });
-      }
-    });
-     
-    return false;
+    function aguardar() {
+        var divAguardar = document.getElementById("div_aguardar");
+        divAguardar.style.display = "block";
     }
-  }
-</script>
+    
+    function finalizarAguardar() {
+      aguardar();
+      var divAguardar = document.getElementById("div_aguardar");
+        divAguardar.style.display = "none";
+    }
+    
+      function limparFormulario() {
+        document.getElementById("form_login").reset();
+      }
+    
+      function entrar() {
+        aguardar();
+        let validarNumero = isNaN(in_login.value);
+    
+        if(validarNumero){
+          var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+          method: "POST",
+          body: formulario
+        }).then(resposta => {
+    
+          if (resposta.ok) {
+    
+            resposta.json().then(json => {
+    
+              sessionStorage.usuario_nome = json.user_name;
+              sessionStorage.usuario_email = json.email;
+              sessionStorage.usuario_id = json.id_user;
+              
+              window.location.href = 'dashboard.html';
+            });
+    
+          } else {
+    
+            console.log('Erro de login!');
+    
+            resposta.text().then(texto => {
+              console.error(texto);
+              finalizarAguardar(texto);
+              window.alert(texto);
+              limparFormulario()
+            });
+          }
+        });
+         
+        return false;
+        
+        }else{
+          
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/clientes/autenticar", {
+          method: "POST",
+          body: formulario
+        }).then(resposta => {
+    
+          if (resposta.ok) {
+    
+            resposta.json().then(json => {
+    
+              sessionStorage.cliente_nome = json.client_name;
+              sessionStorage.cliente_cnpj = json.cnpj;
+              sessionStorage.cliente_id = json.id_client;
+              sessionStorage.cliente_plan = json.client_plan;
+              
+              window.location.href = 'servers.html';
+            });
+    
+          } else {
+    
+            console.log('Erro de login!');
+    
+            resposta.text().then(texto => {
+              console.error(texto);
+              finalizarAguardar(texto);
+              window.alert(texto);
+              limparFormulario()
+            });
+          }
+        });
+         
+        return false;
+        }
+      }
+    </script>
