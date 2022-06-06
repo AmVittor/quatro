@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cadastro Servidor</title>
+        <script src="./assets/js/compute-access.js"></script>
     </head>
     <body>
         <nav style="background-color: #A45EE3;" class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
@@ -115,6 +116,7 @@
       console.log("Id do Cliente:" + idClient);
       console.log("Plano do Cliente:" + planoClient);
     
+      window.onload = compute();
       window.onload = pegarId(idClient);
       window.onload = pegarPlano(planoClient);
     

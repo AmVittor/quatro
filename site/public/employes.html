@@ -14,9 +14,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
   <script src="./assets/js/init-alpine.js"></script>
   <script type="text/javascript" src="./assets/js/funcoes.js"></script>
-
+	<script src="./assets/js/compute-access.js"></script>
 </head>
-<body  onload="verificar_autenticacao(), pegar(idClient), listarUsuario()">
+<body  onload="verificar_autenticacao(), pegar(idClient), listarUsuario(), compute()">
   <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
     <!-- Desktop sidebar -->
     <aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">

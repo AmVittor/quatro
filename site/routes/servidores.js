@@ -1,7 +1,9 @@
 var express = require('express');
+const { Op } = require("sequelize");
 var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Servidor = require('../models').Servidor;
+var Request = require('../models').Request;
 
 let id_client;
 let localizacaoServer;
@@ -131,4 +133,44 @@ router.get('/', function(req, res, next) {
 		res.status(500).send(erro.message);
   	});
 });
+
+// computando acessos de cada página do site
+router.post('/compute', function(req, res, next) {
+	var location = req.body.location;
+	var date = req.body.date;
+	
+	let instrucaoSql = `insert into [dbo].[request](location, request_date, fk_server) values ('${location}', '${date}', 1)`;
+	console.log(instrucaoSql);
+
+	sequelize.query(instrucaoSql, {
+		model: Request
+	}).then(resultado => {	
+		console.log(`Acesso computado: ${resultado}`);
+	}).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
+
+//recuperando acessos de cada págida do site
+router.post('/getAcessos', function(req, res, next) {
+console.log("dentro da router");
+	let instrucaoSql = `
+	select location, count(location) as total, datepart(weekday, request_date) as dia from [dbo].[request]
+	where request_date >= (select dateadd(day, -6, max(request_date)) from [dbo].[request])
+	group by location, datepart(weekday, request_date)`
+
+	// console.log(instrucaoSql);
+	sequelize.query(instrucaoSql, {
+		model: Request
+	})
+	.then(resultado => {	
+		console.log(`Acessos da última semana: ${resultado}`);
+		res.json(resultado);
+	}).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
+
 module.exports = router;

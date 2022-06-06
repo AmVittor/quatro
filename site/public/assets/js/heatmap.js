@@ -1,36 +1,136 @@
-/**
- * For usage, visit Chart.js docs https://www.chartjs.org/docs/latest/
- */
- const pieConfig = {
-    type: 'doughnut',
-    data: {
-      datasets: [
-        {
-          data: [33, 33, 33],
-          /**
-           * These colors come from Tailwind CSS palette
-           * https://tailwindcss.com/docs/customizing-colors/#default-color-palette
-           */
-          backgroundColor: ['#0694a2', '#1c64f2', '#7e3af2'],
-          label: 'Dataset 1',
-        },
-      ],
-      labels: ['Shoes', 'Shirts', 'Bags'],
-    },
-    options: {
-      responsive: true,
-      cutoutPercentage: 80,
-      /**
-       * Default legends are ugly and impossible to style.
-       * See examples in charts.html to add your own legends
-       *  */
-      legend: {
-        display: false,
+
+anychart.onDocumentReady(function () {
+
+  var server = sessionStorage.getItem('server');
+
+    var data = [
+      {x: "Segunda", y: ""},
+      {x: "Terça", y: ""},
+      {x: "Quarta", y: ""},
+      {x: "Quinta", y: ""},
+      {x: "Sexta", y: ""},
+      {x: "Sábado", y: ""},
+      {x: "Domingo", y: ""}
+    ];
+
+    fetch(`/servidores/getAcessos`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
       },
-    },
+      body: JSON.stringify({
+        hostName: server.server_name
+      })
+    }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+
+          console.log(resposta);
+          for (let i = 0; i < resposta.length; i++) {
+            if(resposta[i].dia == 2) {
+                data.push({
+                  x: "Segunda", y: resposta[i].location, heat: resposta[i].total
+                })
+            } else if(resposta[i].dia == 3) {
+              data.push({
+                x: "Terça", y: resposta[i].location, heat: resposta[i].total
+              })
+            } else if(resposta[i].dia == 4) {
+              data.push({
+                x: "Quarta", y: resposta[i].location, heat: resposta[i].total
+              })
+            } else if(resposta[i].dia == 5) {
+              data.push({
+                x: "Quarta", y: resposta[i].location, heat: resposta[i].total
+              })
+            } else if(resposta[i].dia == 6) {
+              data.push({
+                x: "Quarta", y: resposta[i].location, heat: resposta[i].total
+              })
+            } else if(resposta[i].dia == 7) {
+              data.push({
+                x: "Quarta", y: resposta[i].location, heat: resposta[i].total
+              })
+            } else if(resposta[i].dia == 8) {
+              data.push({
+                x: "Quarta", y: resposta[i].location, heat: resposta[i].total
+              })
+            } else if(resposta[i].dia == 3) {
+              data.push({
+                x: "Quarta", y: resposta[i].location, heat: resposta[i].total
+              })
+            }
+          }
+         
+          console.log(data);
+          chart = anychart.heatMap(data);
+  
+          // Cria o gráfico e poe os dados
+         
+          console.log(data);
+          // Titulo do gráfico
+          chart.title("Acessos ultima semana");
+      
+          // Cria e configura as cores de acordo com os valores
+          var customColorScale = anychart.scales.ordinalColor();
+          customColorScale.ranges([
+            { less: 0.549, name: 'Baixo: <= 0.549', color: '#C0392B' },
+            { from: 0.550, to: 0.699, name: 'Médio: 0.55 - 0.699', color: '#F39C12' },
+            { from: 0.700, to: 0.799, name: 'Alto: 0.7 - 0.799', color: '#F1C40F' },
+            { greater: 0.800, name: 'Muito alto: >=0.8', color: '#27AE60' }
+          ]);
+      
+          // Seta as cores para cada intervalo do menor para o maior
+          customColorScale.colors(["#C0392B", "#F39C12", "#F1C40F", "#27AE60"]);
+      
+          // set the color scale as the color scale of the chart
+          chart.colorScale(customColorScale);
+      
+          // Ativiar ou desativar legenda
+          chart.legend(true);
+      
+          // ativa/desativa números nos quadrados
+          chart.labels().enabled(false);
+      
+          // Pega o id da div
+          chart.container("container");
+      
+          // Desenha o gráfico
+          chart.draw();
+    })
+      } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+      }
+    }).catch(function (error) {
+      console.error(`Erro na obtenção dos acessos do servidor`, error.message);
+    });
+
+});
+
+const body = document.querySelector('body'),
+  sidebar = body.querySelector('nav'),
+  toggle = body.querySelector(".toggle"),
+  searchBtn = body.querySelector(".search-box"),
+  modeSwitch = body.querySelector(".toggle-switch"),
+  modeText = body.querySelector(".mode-text");
+
+
+toggle.addEventListener("click", () => {
+  sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click", () => {
+  sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click", () => {
+  body.classList.toggle("dark");
+
+  if (body.classList.contains("dark")) {
+    modeText.innerText = "Light mode";
+  } else {
+    modeText.innerText = "Dark mode";
+
   }
-  
-  // change this to the id of your chart element in HMTL
-  const pieCtx = document.getElementById('pie')
-  window.myPie = new Chart(pieCtx, pieConfig)
-  
+});
+

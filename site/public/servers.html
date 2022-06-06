@@ -16,10 +16,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+	<!-- <link rel="stylesheet" href="./css/sidebar.css"> -->
 	<link rel="stylesheet" href="./css/sidebar.css">
 	<script type='text/javascript'
 	src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AnlFvrcCI9uCYI-9Z4AM-53ps2B2aWc_QAtNhwiPReOExatwy8OnOuYYX9o37w-C' 
 	async defer></script>
+    <script src="./assets/js/compute-access.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="./assets/css/server1.css">
@@ -28,7 +30,7 @@
 	
 </head>
 
-<body onload="verificar_autenticacao(), pegar(idClient), listarServidores()">
+<body onload="verificar_autenticacao(), pegar(idClient), listarServidores(), compute()">
 
 	<nav style="background-color: #A45EE3;"
 		class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
@@ -285,9 +287,9 @@
 		modeText = body.querySelector(".mode-text");
 
 
-	toggle.addEventListener("click", () => {
-		sidebar.classList.toggle("close");
-	})
+	 toggle.addEventListener("click", () => {
+	 	sidebar.classList.toggle("close");
+	 })
 
 	searchBtn.addEventListener("click", () => {
 		sidebar.classList.remove("close");
@@ -303,9 +305,7 @@
 
 		}
 	});
-</script>
 
-<script>
 	function selecaoPlano() {
 		in_plano.value = sl_plano.value;
 	}
