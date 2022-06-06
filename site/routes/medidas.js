@@ -5,7 +5,6 @@ var Medida = require('../models').Medida;
 var Component = require('../models').Component;
 
 router.post('/recuperar/cpu', function (req, res, next) {
-	console.log("entrou no req", req.body.hostName);
 	let queryCPU = `SELECT 
 					top 5
 					server_name,

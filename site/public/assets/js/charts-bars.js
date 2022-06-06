@@ -48,6 +48,7 @@ var qtdDiscos = 0;
 var colors = ['#7e3af2', '#085555', '#1aa308', '#031680', '#06dabd', '#9acc0f', '#f0a911','#f02011', '#f01193', '#119ef0'];
 var server = sessionStorage.getItem('server');
 var labels_disk = document.getElementById("labels_disk")
+var convertedToMB
 
 function recuperarQuantidadeDisco() {
     fetch(`/medidas/recuperar/quantidade/disco`, {
@@ -61,7 +62,7 @@ function recuperarQuantidadeDisco() {
     }).then(function (response) {
       if (response.ok) {
         response.json().then(function (resposta) {
-            this.qtdDiscos = resposta[0][0].quantidade
+            this.qtdDiscos = resposta[0].quantidade
             setarLabels()
         });
       } else {
@@ -122,21 +123,31 @@ function recuperarDadosDisco() {
         )
 
         myBar.update();
-     
+        
+        let idList = []
+
         parsed.forEach(data => {
+          idList.push(data.id_component)
+
           for (let j = 0; j < myBar.data.datasets.length;j++) {
             if (myBar.data.datasets[j].data.length == 10) {
               myBar.data.datasets[j].data.shift();
             }
           }
 
-          var convertedToGB = parseFloat(data.usage) / 1024 / 1024 / 1024
-          
+          myBar.update();
+        });
 
-          if(data.id_component == 3) {
-            myBar.data.datasets[0].data.push(convertedToGB.toFixed(2))
-          } else {
-            myBar.data.datasets[1].data.push((convertedToGB * 1800.).toFixed(2))
+        let filtered = [...new Set(idList)]
+        console.log(filtered);
+        parsed.forEach(data => {
+  
+          this.convertedToMB = data.usage / 1024 / 1024 / 1024
+
+          for (let j = 0; j < myBar.data.datasets.length;j++) {
+            if(data.id_component == filtered[j]) {
+              myBar.data.datasets[j].data.push(convertedToMB.toFixed(2))
+            }
           }
 
           myBar.update();
