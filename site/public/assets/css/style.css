@@ -21,54 +21,100 @@
   justify-content: center;
   margin-top: 5%;
 }
-  .nav {
-    height: 50px;
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-    position: relative;
-    background: rgb(223,40,132);
-      background: linear-gradient(90deg, rgba(223,40,132,1) 2%, rgba(253,96,175,1) 21%, rgba(164,94,227,1) 73%, rgba(96,54,134,1) 98%);
-  }
-  
-  .nav > .nav-header {
-    display: inline;
-  }
-  
-  .nav > .nav-header > .nav-title {
-    display: inline-block;
-    font-size: 22px;
-    font-weight: bold;
-    color: #fff;
-    padding: 10px 10px 10px 10px;
-  }
-  
+
+.nav {
+  height: 55px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  background: rgb(223,40,132);
+  background: linear-gradient(90deg, rgba(223,40,132,1) 2%, rgba(253,96,175,1) 21%, rgba(164,94,227,1) 73%, rgba(96,54,134,1) 98%);
+  position: relative;
+}
+
+.nav > .nav-header {
+  display: inline;
+  font-weight: bolder;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.nav > .nav-links > .link-redirect {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.nav > .nav-links > .link-redirect:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+@media (max-width:600px) {
   .nav > .nav-btn {
-    display: none;
-  }
-  
-  .nav > .nav-links {
-    display: inline;
-    float: right;
-    font-size: 18px;
-  }
-  
-  .nav > .nav-links > a {
     display: inline-block;
-    padding: 14px;
-    font-size: 14px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #efefef;
+    position: absolute;
+    right: 0px;
+    top: 0px;
   }
-  
-  .nav > .nav-links > a:hover {
+  .nav > .nav-btn > .nav-label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > .nav-label:hover,.nav  #nav-check:checked ~ .nav-btn > .nav-label {
     background-color: rgba(0, 0, 0, 0.3);
   }
-  
-  .nav > #nav-check {
-    display: none;
+  .nav > .nav-btn > .nav-label > .nav-span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
   }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-links > .link-redirect {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+
   .main{
       height: 70vh;
       width: 100%;
