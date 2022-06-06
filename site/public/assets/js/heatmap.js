@@ -5,7 +5,7 @@ anychart.onDocumentReady(function () {
 
     var data = [
       {x: "Segunda", y: ""},
-      {x: "Terça", y: ""},
+      {x: "Terça", y: ""} ,
       {x: "Quarta", y: ""},
       {x: "Quinta", y: ""},
       {x: "Sexta", y: ""},
@@ -41,25 +41,21 @@ anychart.onDocumentReady(function () {
               })
             } else if(resposta[i].dia == 5) {
               data.push({
-                x: "Quarta", y: resposta[i].location, heat: resposta[i].total
+                x: "Quinta", y: resposta[i].location, heat: resposta[i].total
               })
             } else if(resposta[i].dia == 6) {
               data.push({
-                x: "Quarta", y: resposta[i].location, heat: resposta[i].total
+                x: "Sexta", y: resposta[i].location, heat: resposta[i].total
               })
             } else if(resposta[i].dia == 7) {
               data.push({
-                x: "Quarta", y: resposta[i].location, heat: resposta[i].total
+                x: "Sábado", y: resposta[i].location, heat: resposta[i].total
               })
             } else if(resposta[i].dia == 8) {
               data.push({
-                x: "Quarta", y: resposta[i].location, heat: resposta[i].total
+                x: "Domingo", y: resposta[i].location, heat: resposta[i].total
               })
-            } else if(resposta[i].dia == 3) {
-              data.push({
-                x: "Quarta", y: resposta[i].location, heat: resposta[i].total
-              })
-            }
+            } 
           }
          
           console.log(data);
@@ -74,10 +70,10 @@ anychart.onDocumentReady(function () {
           // Cria e configura as cores de acordo com os valores
           var customColorScale = anychart.scales.ordinalColor();
           customColorScale.ranges([
-            { less: 0.549, name: 'Baixo: <= 0.549', color: '#C0392B' },
-            { from: 0.550, to: 0.699, name: 'Médio: 0.55 - 0.699', color: '#F39C12' },
-            { from: 0.700, to: 0.799, name: 'Alto: 0.7 - 0.799', color: '#F1C40F' },
-            { greater: 0.800, name: 'Muito alto: >=0.8', color: '#27AE60' }
+            { less: 10, name: 'Baixo: <= 10', color: '#C0392B' },
+            { from: 11, to: 20, name: 'Médio: 11 - 22', color: '#F39C12' },
+            { from: 21, to: 30, name: 'Alto: 21 - 30', color: '#F1C40F' },
+            { greater: 31, name: 'Muito alto: 31', color: '#27AE60' }
           ]);
       
           // Seta as cores para cada intervalo do menor para o maior
