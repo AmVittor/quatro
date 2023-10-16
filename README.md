@@ -1,37 +1,66 @@
-# Quatro
-Docker java + mysql + executavel
-Conexão projeto Quatro (pi) via docker com mysql, azure e java executavel.
+# Projeto Quatro (PI) - Docker Java + MySQL + Executável
+
+O Projeto Quatro é um projeto de monitoramento de servidores de e-commerce. Este repositório é responsável por abrigar o front-end do projeto, bem como a documentação e script executável, juntamente com a modelagem do banco de dados.
 
 ## Instalação
 
-Entrar no mysql
-```
-sudo docker exec -it ContainerBD bash
-mysql -u root -p
-```
+1. Acesse o contêiner MySQL:
+    ```bash
+    sudo docker exec -it ContainerBD bash
+    mysql -u root -p
+    ```
 
-## Possiveis problemas <br><br>
-### Caso o docker exec acuse erro dizendo que não está running basta rodar: <br> <br>
-` 
-sudo su root
-docker start nome_docker
-` <br>
-_E depois os comandos descritos no entrar mysql acima_ <br> <br>
+## Possíveis Problemas
 
-### Script dando algum problema: <br>
-` 
-Caso o script tenha dado problema, para edita-lo basta (no terminal) escrever vim /nome_script, apertar a telca i do teclado pra editar, após editado
-a tecla esc e escrever :x 
-`  <br><br>
+### Erro "docker exec" não está em execução
 
-### Script não salvando ou nao permitindo o :X: <br>
-` 
-Neste caso, aperte ctrl c algumas vezes e o terminal lhe dirá como sair, comumente é o comando :qw, para editar entre no root (sudo su root) e digite
-chmod 777 nome_script, o 777 é para garantir que consiga fazer oq quiser com o script. Lembre-se de mudar para 400 depois.
-` <br><br>
-### Script não exectavel ou nao está "verdinho" quando dou ls: <br>
-` 
-Nesso caso, basta criar um script novo, para criar digite 
-touch nome_qualquer e depois os comandos de edição ditados acima e inserir o script digitado abaixo
-`<br
-<br><br><br>
+Se você receber um erro indicando que o comando `docker exec` não está em execução, siga estas etapas:
+
+1. Torne-se superusuário (root):
+    ```bash
+    sudo su root
+    ```
+
+2. Inicie o contêiner com o nome apropriado:
+    ```bash
+    docker start nome_docker
+    ```
+
+### Script com problemas
+
+Se o seu script tiver algum problema, siga estas instruções:
+
+1. Para editá-lo, digite no terminal:
+    ```bash
+    vim /nome_script
+    ```
+
+2. Pressione a tecla `i` para editar o script.
+
+3. Após editar, pressione `Esc` e digite `:x` para salvar e sair.
+
+### Script não está salvando ou não permite `:x`
+
+Se o script não estiver sendo salvo ou não permitir o comando `:x`, siga estas etapas:
+
+1. Pressione `Ctrl+C` algumas vezes para sair do modo de edição.
+
+2. O terminal fornecerá uma instrução para sair; comumente, é o comando `:qw`.
+
+3. Para editar o script, acesse como root (sudo su root) e execute:
+    ```bash
+    chmod 777 nome_script
+    ```
+
+4. Lembre-se de alterar as permissões para 400 quando terminar.
+
+### Script não é executável ou não aparece no comando `ls`
+
+Se o script não for executável ou não estiver visível com `ls`, siga estas etapas:
+
+1. Crie um novo script:
+    ```bash
+    touch nome_qualquer
+    ```
+
+2. Siga as instruções de edição mencionadas acima e insira o script desejado.
