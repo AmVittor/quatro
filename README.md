@@ -1,95 +1,66 @@
-# Quatro
-Docker java + mysql + executavel
-Conexão projeto Quatro (pi) via docker com mysql, azure e java executavel.
+# Projeto *Quatro* - Docker Java + MySQL + Executável
+
+O Projeto Quatro é um projeto de monitoramento de servidores de e-commerce. Este repositório é responsável por abrigar o front-end do projeto, bem como a documentação e script executável, juntamente com a modelagem do banco de dados.
 
 ## Instalação
 
-Entrar no mysql
-```
-sudo docker exec -it ContainerBD bash
-mysql -u root -p
-```
+1. Acesse o contêiner MySQL:
+    ```bash
+    sudo docker exec -it ContainerBD bash
+    mysql -u root -p
+    ```
 
+## Possíveis Problemas
 
+### Erro "docker exec" não está em execução
 
-## Possiveis problemas <br><br>
-### Caso o docker exec acuse erro dizendo que não está running basta rodar: <br> <br>
-` 
-sudo su root
-docker start nome_docker
-` <br>
-_E depois os comandos descritos no entrar mysql acima_ <br> <br>
+Se você receber um erro indicando que o comando `docker exec` não está em execução, siga estas etapas:
 
-### Script dando algum problema: <br>
-` 
-Caso o script tenha dado problema, para edita-lo basta (no terminal) escrever vim /nome_script, apertar a telca i do teclado pra editar, após editado
-a tecla esc e escrever :x 
-`  <br><br><br>
+1. Torne-se superusuário (root):
+    ```bash
+    sudo su root
+    ```
 
-### Script não salvando ou nao permitindo o :X: <br>
-` 
-Neste caso, aperte ctrl c algumas vezes e o terminal lhe dirá como sair, comumente é o comando :qw, para editar entre no root (sudo su root) e digite
-chmod 777 nome_script, o 777 é para garantir que consiga fazer oq quiser com o script. Lembre-se de mudar para 400 depois.
-` <br><br><br>
-### Script não exectavel ou nao está "verdinho" quando dou ls: <br>
-` 
-Nesso caso, basta criar um script novo, para criar digite 
-touch nome_qualquer e depois os comandos de edição ditados acima e inserir o script digitado abaixo
-`<br><br>
-Lembre-se, atalhos de ctrl+c ou v não funcionam, use insert ou o botão direito copiar/colar
-<br><br><br>
-## Script
+2. Inicie o contêiner com o nome apropriado:
+    ```bash
+    docker start nome_docker
+    ```
 
-```
-#!/bin/bash
+### Script com problemas
 
-sudo passwd ubuntu
+Se o seu script tiver algum problema, siga estas instruções:
 
-echo \"Iniciando atualização dos pacotes...\"
-sudo apt update && sudo apt upgrade -y
+1. Para editá-lo, digite no terminal:
+    ```bash
+    vim /nome_script
+    ```
 
-echo \"Baixando Java 11\"
-sudo apt install default-jre
-sudo apt install openjdk-11-jre-headlwss
+2. Pressione a tecla `i` para editar o script.
 
-docker --version
-if [ $? -eq 0 ]
-then
-echo \"Docker já instalado!\"
-else
-echo \"Docker não instalado, gostaria de instalar? [s/n~]?\"
-read inst
-if [ \"$inst\" == \"s\" ]
-then
-echo \"Iniciando instalação do docker...\"
-sudo apt install docker.io -y
-echo \"Verificando imagem MySql\"
-sudo docker images | grep mysql
-if [ $? -eq 0 ]
-then
-echo \"MySql instalado\"
-else
-echo \"MySql não instalado, instalando...\"
-sudo docker pull mysql:5.7
-echo \"Iniciando docker.\"
-sleep 3
-sudo docker run -d -p 3306:3306 --name ContainerBD -e "MYSQL_DATABASE=4four" -e "MYSQL_ROOT_PASSWORD=urubu100" mysql:5.7
-fi
-else
-echo \"Você escolheu não instalar o docker\"
-fi
-fi
+3. Após editar, pressione `Esc` e digite `:x` para salvar e sair.
 
+### Script não está salvando ou não permite `:x`
 
-cat > Dockerfile <<EOF
-FROM openjdk:11
-WORKDIR /javaCli/
-COPY /executable_quatro.jar/ /javaCli/
-CMD ["java","-jar","executable_quatro.jar"]
-EOF
+Se o script não estiver sendo salvo ou não permitir o comando `:x`, siga estas etapas:
 
-sudo docker build . -t executable_quatro-jar
+1. Pressione `Ctrl+C` algumas vezes para sair do modo de edição.
 
-sudo docker run -it executable_quatro-jar
+2. O terminal fornecerá uma instrução para sair; comumente, é o comando `:qw`.
 
-```
+3. Para editar o script, acesse como root (sudo su root) e execute:
+    ```bash
+    chmod 777 nome_script
+    ```
+
+4. Lembre-se de alterar as permissões para 400 quando terminar.
+
+### Script não é executável ou não aparece no comando `ls`
+
+Se o script não for executável ou não estiver visível com `ls`, siga estas etapas:
+
+1. Crie um novo script:
+    ```bash
+    touch nome_qualquer
+    ```
+
+2. Siga as instruções de edição mencionadas acima e insira o script desejado.
