@@ -1,6 +1,6 @@
 # Projeto *Quatro* - Docker Java + MySQL
 
-O Projeto Quatro é um projeto de monitoramento de servidores de e-commerce. Este repositório é responsável por abrigar o front-end do projeto, bem como a documentação e script executável, juntamente com a modelagem do banco de dados.
+O Projeto Quatro é um projeto de monitoramento de servidores de e-commerce. Este repositório é responsável por abrigar o front-end do projeto, bem como a documentação e script executável, juntamente com a modelagem do banco de dados. <br>
 A API pode ser encontrado no link: https://github.com/AmVittor/api-monitoramento-quatro
 ## Instalação
 
